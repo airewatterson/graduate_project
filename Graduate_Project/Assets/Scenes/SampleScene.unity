@@ -254,10 +254,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db38998c858cb89f8856897fbee3a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textLabel: {fileID: 1649660547}
-  _imageLabel: {fileID: 2088017119}
+  textLabel: {fileID: 1649660547}
+  imageLabel: {fileID: 2088017119}
   textAsset: {fileID: 4900000, guid: c95dc724dd28685b68b18e3799aa85e9, type: 3}
   index: 0
+  av1: {fileID: 7433812123843982230, guid: 3c42241dcfa71d00a8f8b931b583e89d, type: 3}
+  av2: {fileID: 1404248521807868572, guid: 3c42241dcfa71d00a8f8b931b583e89d, type: 3}
+  block: {fileID: 610344250}
+  textClock: 0.1
 --- !u!1 &238926724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,7 +1597,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u566B\uFF01\u597D\uFF01\u6211\u4E2D\u4E86\uFF01"
+  m_Text: 
 --- !u!222 &1649660548
 CanvasRenderer:
   m_ObjectHideFlags: 0
