@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Default ignored files
 /shelf/
 /workspace.xml
@@ -6,5 +7,18 @@
 /modules.xml
 /projectSettingsUpdater.xml
 /contentModel.xml
+=======
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/.idea.Graduate_Project.iml
+/contentModel.xml
+/projectSettingsUpdater.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+>>>>>>> Stashed changes
 # Editor-based HTTP Client requests
 /httpRequests/
