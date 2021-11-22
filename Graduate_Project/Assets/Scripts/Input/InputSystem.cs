@@ -28,10 +28,9 @@ namespace Input
             _characterController = GetComponent<CharacterController>();
             
             //inputsystem名稱.actionmaps名稱.動作.然後要幹嘛...etc(OnMovementInput)
-            _playerInputActions.Player.Movement.started += OnMovementInput;
-            _playerInputActions.Player.Movement.canceled += OnMovementInput;
-            _playerInputActions.Player.Movement.performed += OnMovementInput;
-            
+            _playerInputActions.Player1.Movement.started += OnMovementInput;
+            _playerInputActions.Player1.Movement.canceled += OnMovementInput;
+            _playerInputActions.Player1.Movement.performed += OnMovementInput;
         }
 
         private void Update()
@@ -41,12 +40,12 @@ namespace Input
 
         private void OnEnable()
         {
-            _playerInputActions.Player.Enable();
+            _playerInputActions.Player1.Enable();
         }
 
         private void OnDisable()
         {
-            _playerInputActions.Player.Disable();
+            _playerInputActions.Player1.Disable();
         }
 
         private void OnMovementInput(InputAction.CallbackContext ctx)
@@ -57,4 +56,5 @@ namespace Input
             _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
         }
     }
+    
 }
