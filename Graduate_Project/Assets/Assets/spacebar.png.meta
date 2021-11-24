@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: f1401ee4b74344f40a5773ed171eb307
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -506966540291480634
+    second: spacebar_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,11 +104,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spacebar_0
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 407
+        width: 1000
+        height: 1001
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3eaec1e94e6f8f0800000000000000
+      internalID: -506966540291480634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f992602f3ff5ff34d9999e321f34856d
     internalID: 0
     vertices: []
     indices: 

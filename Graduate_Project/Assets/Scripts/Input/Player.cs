@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using General;
@@ -10,6 +11,9 @@ namespace Input
 {
     public class Player : SingletonMonoBehavior<Player>
     {
+        //指定控制物件
+        [SerializeField] private GameObject itemActive;
+        
         //導入InputSystem代碼
         private PlayerInputActions _playerInputActions;
         private CharacterController _characterController;
@@ -55,12 +59,29 @@ namespace Input
             _currentMovement.z = _currentMovementInput.y;
             _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
         }
+        
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Item"))
             {
-                Debug.Log("TriggerEnter");
+                ItemScript.Instance.ApproachItem();
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            ItemScript.Instance.UnApproachItem();
+        }
+
+
+
+        public void TakeItem(Collider other)
+        {
+            if (other.CompareTag("Item") && other.name == "TestBomb")
+            {
+                other.gameObject.SetActive(false);
+                itemActive.SetActive(true);
             }
         }
     }
