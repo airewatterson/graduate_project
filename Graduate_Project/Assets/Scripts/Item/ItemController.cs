@@ -35,6 +35,21 @@ namespace Item
                     return ItemAssets.Instance.healingSprite;
             }
         }
+
+        public bool IsStackable()
+        {
+            switch (itemDefine)
+            {
+                default:
+                    
+                case ItemDefine.Bomb: 
+                    return false;
+                case ItemDefine.Healing:
+                    return true;
+                case ItemDefine.Landmine:
+                    return false;
+            }
+        }
         
         
     }

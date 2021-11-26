@@ -1,6 +1,7 @@
 using CodeMonkey.Utils;
 using General;
 using Input;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +41,6 @@ namespace Item
             RefreshInventoryItems();
         }
         
-        
         private void RefreshInventoryItems()
         {
             foreach (Transform child in _itemSlotContainer)
@@ -59,14 +59,17 @@ namespace Item
             {
                 var itemSlotRectTransform = Instantiate(_itemSlotTemplate,_itemSlotContainer).GetComponent<RectTransform>();
                 itemSlotRectTransform.gameObject.SetActive(true);
-
+                
                 itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () =>
                 {
+                    
                     //Use item
-
+                    
                 };
+
                 itemSlotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () =>
                 {
+                    Debug.Log("item out");
                     //Drop item
                     _inventory.RemoveItem(item);
                     ItemWorld.DropItem(_player.GetPosition(), item);
@@ -74,9 +77,19 @@ namespace Item
                 
                     
                 
-                itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+                itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, -y * itemSlotCellSize);
                 var image = itemSlotRectTransform.Find("image").GetComponent<Image>();
                 image.sprite = item.GetSprite();
+                var uiText = itemSlotRectTransform.Find("text").GetComponent<TextMeshProUGUI>();
+                if (item.amount > 1)
+                {
+                    uiText.SetText(item.amount.ToString());
+                }
+                else
+                {
+                    uiText.SetText("");
+                }
+                
                 x++;
 
                 if (x>4)
@@ -84,6 +97,7 @@ namespace Item
                     x = 0;
                     y++;
                 }
+                
             }
         }
     }

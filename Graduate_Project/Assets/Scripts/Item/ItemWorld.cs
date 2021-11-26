@@ -1,5 +1,6 @@
 using CodeMonkey.Utils;
 using General;
+using TMPro;
 using UnityEngine;
 
 namespace Item
@@ -27,16 +28,27 @@ namespace Item
         
         private ItemController _item;
         private SpriteRenderer _spriteRenderer;
+        private TextMeshPro _textMeshPro;
 
         public override void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _textMeshPro = transform.Find("Text").GetComponent<TextMeshPro>();
         }
 
         public void SetItem(ItemController item)
         {
             _item = item;
             _spriteRenderer.sprite = _item.GetSprite();
+            if (item.amount>1)
+            {
+                _textMeshPro.SetText(_item.amount.ToString());
+            }
+            else
+            {
+                _textMeshPro.SetText("");
+            }
+            
         }
 
         public ItemController GetItem()

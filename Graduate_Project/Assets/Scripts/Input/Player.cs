@@ -34,7 +34,9 @@ namespace Input
         [SerializeField] private UIInventory uiInventory;
         private Inventory _inventory;
 
-        public override void Awake()
+#pragma warning disable 108,114
+        private void Awake()
+#pragma warning restore 108,114
         {
             _playerInputActions = new PlayerInputActions();
             _characterController = GetComponent<CharacterController>();
@@ -121,6 +123,9 @@ namespace Input
                 Destroy(this.gameObject);
             }*/
         }
+        public Vector3 GetPosition() {
+            return transform.position;
+        }
 
         /*public void UseItem(GameObject takePoint, bool isTaking)
         {
@@ -132,5 +137,4 @@ namespace Input
             }
         }*/
     }
-    
 }
