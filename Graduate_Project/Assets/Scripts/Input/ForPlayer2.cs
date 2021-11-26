@@ -78,7 +78,13 @@ namespace Input
             {
                 other.gameObject.SetActive(false);
                 itemActive.SetActive(true);
+                health -= 1;
+            }
+            if (health == 0)
+            {
+                Destroy(this.gameObject);
             }
         }
+        
     }
 }
