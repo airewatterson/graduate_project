@@ -46,7 +46,10 @@ namespace Input
             
             //載入物品欄
             _inventory = new Inventory();
+            uiInventory.SetPlayer(this);
             uiInventory.SetInventory(_inventory);
+
+            
         }
 
         private void Update()
@@ -75,6 +78,16 @@ namespace Input
 
         private void OnTriggerEnter(Collider other)
         {
+            //定義物件
+            var itemWorld = other.GetComponent<ItemWorld>();
+
+            if (itemWorld != null)
+            {
+                //touching item
+                _inventory.AddItem(itemWorld.GetItem());
+                itemWorld.DestroySelf();
+            }
+            
             if (other.CompareTag("Item"))
             {
                 ItemScript.Instance.ApproachItem();
@@ -96,16 +109,17 @@ namespace Input
 
         public void TakeItem(Collider other)
         {
+            /*
             if (other.CompareTag("Item") && other.name == "TestBomb")
             {
                 other.gameObject.SetActive(false);
                 itemActive.SetActive(true);
                 health -= 1;
             }
-             if (health == 0)
+            if (health == 0)
             {
                 Destroy(this.gameObject);
-            }
+            }*/
         }
 
         /*public void UseItem(GameObject takePoint, bool isTaking)

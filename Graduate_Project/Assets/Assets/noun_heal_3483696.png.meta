@@ -1,0 +1,1008 @@
+fileFormatVersion: 2
+guid: 28942c6f94b811541bdb3312d8f2e0c8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -496918090575811396
+    second: noun_heal_3483696_0
+  - first:
+      213: -1881963630366913096
+    second: noun_heal_3483696_1
+  - first:
+      213: -6456643089465558388
+    second: noun_heal_3483696_2
+  - first:
+      213: -2252038956290088558
+    second: noun_heal_3483696_3
+  - first:
+      213: -2998203548932771932
+    second: noun_heal_3483696_4
+  - first:
+      213: 9141169277564359088
+    second: noun_heal_3483696_5
+  - first:
+      213: 6314453367030627637
+    second: noun_heal_3483696_6
+  - first:
+      213: -2954998062925477316
+    second: noun_heal_3483696_7
+  - first:
+      213: 8249504496517534634
+    second: noun_heal_3483696_8
+  - first:
+      213: 8164890641643221264
+    second: noun_heal_3483696_9
+  - first:
+      213: -1220858008176461393
+    second: noun_heal_3483696_10
+  - first:
+      213: -7661039892834535631
+    second: noun_heal_3483696_11
+  - first:
+      213: 4483565198927546556
+    second: noun_heal_3483696_12
+  - first:
+      213: -7104610991909777370
+    second: noun_heal_3483696_13
+  - first:
+      213: -6545497617015715676
+    second: noun_heal_3483696_14
+  - first:
+      213: 9090990436226217866
+    second: noun_heal_3483696_15
+  - first:
+      213: 8373282724129185924
+    second: noun_heal_3483696_16
+  - first:
+      213: -1643400576005212249
+    second: noun_heal_3483696_17
+  - first:
+      213: -1304604326302203261
+    second: noun_heal_3483696_18
+  - first:
+      213: -5049295301366058574
+    second: noun_heal_3483696_19
+  - first:
+      213: -7118725018476154124
+    second: noun_heal_3483696_20
+  - first:
+      213: 6782813284765312089
+    second: noun_heal_3483696_21
+  - first:
+      213: -1845474472920170535
+    second: noun_heal_3483696_22
+  - first:
+      213: -2707890816548858602
+    second: noun_heal_3483696_23
+  - first:
+      213: -3346565134937537040
+    second: noun_heal_3483696_24
+  - first:
+      213: 3215000907228150999
+    second: noun_heal_3483696_25
+  - first:
+      213: 6816846988759589818
+    second: noun_heal_3483696_26
+  - first:
+      213: -4887456510005806374
+    second: noun_heal_3483696_27
+  - first:
+      213: -4563587074716106008
+    second: noun_heal_3483696_28
+  - first:
+      213: -3192253102868461401
+    second: noun_heal_3483696_29
+  - first:
+      213: -7282070775557593348
+    second: noun_heal_3483696_30
+  - first:
+      213: -8199702998090064888
+    second: noun_heal_3483696_31
+  - first:
+      213: 1423469553214532972
+    second: noun_heal_3483696_32
+  - first:
+      213: -3430915015464468607
+    second: noun_heal_3483696_33
+  - first:
+      213: -8141213029090884966
+    second: noun_heal_3483696_34
+  - first:
+      213: -8388464500700218365
+    second: noun_heal_3483696_35
+  - first:
+      213: 3083013197562749754
+    second: noun_heal_3483696_36
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: noun_heal_3483696_0
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 156
+        width: 488
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc63c021a79a19f0800000000000000
+      internalID: -496918090575811396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 68
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd86cb9c0ce1e5e0800000000000000
+      internalID: -1881963630366913096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 68
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8abce2a1556566a0800000000000000
+      internalID: -6456643089465558388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 68
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 291ecf540862fb0e0800000000000000
+      internalID: -2252038956290088558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_4
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 68
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4afeb85e1cd3466d0800000000000000
+      internalID: -2998203548932771932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_5
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 68
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b110f4a605fbde70800000000000000
+      internalID: 9141169277564359088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_6
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 68
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d31a4c1e171a750800000000000000
+      internalID: 6314453367030627637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_7
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 68
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a0c530becbdf6d0800000000000000
+      internalID: -2954998062925477316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_8
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 63
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa35aefb1a02c7270800000000000000
+      internalID: 8249504496517534634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_9
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 68
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0113e0577c48f4170800000000000000
+      internalID: 8164890641643221264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_10
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 68
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa973752c14ae0fe0800000000000000
+      internalID: -1220858008176461393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_11
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 68
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1373081bec48ea590800000000000000
+      internalID: -7661039892834535631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_12
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 68
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb841612bc2d83e30800000000000000
+      internalID: 4483565198927546556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_13
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 68
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620d1e7d1f9576d90800000000000000
+      internalID: -7104610991909777370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_14
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 68
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8cc9bc898b925a0800000000000000
+      internalID: -6545497617015715676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_15
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 68
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a87bcb7b2afa92e70800000000000000
+      internalID: 9090990436226217866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_16
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 68
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480a2a72640e33470800000000000000
+      internalID: 8373282724129185924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_17
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 68
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7798b12e77139e0800000000000000
+      internalID: -1643400576005212249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_18
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 68
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382c15ef64d15ede0800000000000000
+      internalID: -1304604326302203261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_19
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 68
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1f60cfcac4de9b0800000000000000
+      internalID: -5049295301366058574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_20
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 68
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f2fa04ff45353d90800000000000000
+      internalID: -7118725018476154124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_21
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 68
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954ac30eeb4612e50800000000000000
+      internalID: 6782813284765312089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_22
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 68
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfba8f9ebe8366e0800000000000000
+      internalID: -1845474472920170535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_23
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 68
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615101d36a3ab6ad0800000000000000
+      internalID: -2707890816548858602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_24
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 42
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5475a9dbc9e81d0800000000000000
+      internalID: -3346565134937537040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_25
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 42
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc74e39a4afd9c20800000000000000
+      internalID: 3215000907228150999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_26
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 42
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3e435183e4a9e50800000000000000
+      internalID: 6816846988759589818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 42
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adafee1f2344c2cb0800000000000000
+      internalID: -4887456510005806374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_28
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 42
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e28bf50cb1eaa0c0800000000000000
+      internalID: -4563587074716106008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_29
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 42
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8036a57b6d2b3d0800000000000000
+      internalID: -3192253102868461401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_30
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 42
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf6e2a13633e0fa90800000000000000
+      internalID: -7282070775557593348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_31
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 42
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80cd22f219dc43e80800000000000000
+      internalID: -8199702998090064888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_32
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 42
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6dafeb440e21c310800000000000000
+      internalID: 1423469553214532972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_33
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 37
+        width: 5
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fbfa0a8f0f260d0800000000000000
+      internalID: -3430915015464468607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_34
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 42
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92814052e9940f80800000000000000
+      internalID: -8141213029090884966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_35
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 42
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30cf9c80bff269b80800000000000000
+      internalID: -8388464500700218365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_heal_3483696_36
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 42
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33a19e2b2019ca20800000000000000
+      internalID: 3083013197562749754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c9592705f1c098246871549115e3cbbd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
