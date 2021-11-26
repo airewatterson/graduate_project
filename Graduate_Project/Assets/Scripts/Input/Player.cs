@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using General;
+using Item;
 using UnityEngine.Serialization;
 
 //Code written by Aire Watterson.
@@ -30,6 +31,7 @@ namespace Input
         [FormerlySerializedAs("_move")] [SerializeField] private float move;
         
         //物品欄
+        [SerializeField] private UIInventory uiInventory;
         private Inventory _inventory;
 
         public override void Awake()
@@ -44,6 +46,7 @@ namespace Input
             
             //載入物品欄
             _inventory = new Inventory();
+            uiInventory.SetInventory(_inventory);
         }
 
         private void Update()

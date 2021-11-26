@@ -20,4 +20,9 @@ public class Inventory
     {
         itemList.Add(item);
     }
+
+    public List<ItemController> GetItemList()
+    {
+        return itemList;
+    }
 }

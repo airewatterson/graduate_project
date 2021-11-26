@@ -5,16 +5,25 @@ namespace Item
 {
     public class UIInventory : SingletonMonoBehavior<UIInventory>
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        private Inventory _inventory;
+        private Transform _itemSlotContainer;
+        private Transform _itemSlotTemplate;
         
+
+        public override void Awake()
+        {
+            _itemSlotContainer = transform.Find("itemSlotContainer");
+            _itemSlotTemplate = _itemSlotContainer.Find("itemSlotTemplate");
         }
 
-        // Update is called once per frame
-        void Update()
+        public void SetInventory(Inventory inventory)
         {
-        
+            _inventory = inventory;
+        }
+
+        private void RefreshInventoryItems()
+        {
+            
         }
     }
 }
