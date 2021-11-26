@@ -1,10 +1,18 @@
+using System;
 using General;
+using Input;
 using UnityEngine;
 
 public class ItemScript : SingletonMonoBehavior<ItemScript>
 {
-    [SerializeField] private GameObject keyboardHint;
     
+    //指定物件編號
+    [SerializeField] private int defineItemIndex;
+
+    //按鍵提示
+    [SerializeField] private GameObject keyboardHint;
+
+
     public void ApproachItem()
     {
         keyboardHint.SetActive(true);
@@ -15,3 +23,4 @@ public class ItemScript : SingletonMonoBehavior<ItemScript>
         keyboardHint.SetActive(false);
     }
 }
+

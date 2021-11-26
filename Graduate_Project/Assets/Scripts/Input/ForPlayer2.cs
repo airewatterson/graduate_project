@@ -6,6 +6,9 @@ namespace Input
 {
     public class ForPlayer2 : SingletonMonoBehavior<ForPlayer2>
     {
+        //指定控制物件
+        [SerializeField] private GameObject itemActive;
+        
         //導入InputSystem代碼
         private PlayerInputActions _playerInputActions;
         private CharacterController _characterController;
@@ -14,9 +17,11 @@ namespace Input
         private Vector2 _currentMovementInput;
         private Vector3 _currentMovement;
         private bool _isMovementPressed;
-
+        
+        //玩家數值
+        public int health;
         [SerializeField] private float move;
-
+        
 
         public override void Awake()
         {
@@ -51,6 +56,29 @@ namespace Input
             _currentMovement.x = _currentMovementInput.x;
             _currentMovement.z = _currentMovementInput.y;
             _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Item"))
+            {
+                ItemScript.Instance.ApproachItem();
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            ItemScript.Instance.UnApproachItem();
+        }
+
+
+
+        public void TakeItem(Collider other)
+        {
+            if (other.CompareTag("Item") && other.name == "TestBomb")
+            {
+                other.gameObject.SetActive(false);
+                itemActive.SetActive(true);
+            }
         }
     }
 }
