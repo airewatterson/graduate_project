@@ -78,16 +78,13 @@ namespace Input
         {
             //定義物件
             
-           /* if (other.CompareTag("Item"))
-            {
-                //ItemScript.Instance.ApproachItem();
-            }
+          
             if (other.CompareTag("ActiveItem") && other.name == "ActiveBomb")
             {
                 health--;
                 Debug.Log("P1 Health: " + health);
                 Destroy(other.gameObject);
-            }*/
+            }
            
 
            
