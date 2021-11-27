@@ -61,13 +61,13 @@ namespace Input
         {
             if (other.CompareTag("Item"))
             {
-                ItemScript.Instance.ApproachItem();
+                //ItemScript.Instance.ApproachItem();
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            ItemScript.Instance.UnApproachItem();
+           // ItemScript.Instance.UnApproachItem();
         }
 
 

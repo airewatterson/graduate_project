@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using General;
-using Item;
 using UnityEngine.Serialization;
 
 //Code written by Aire Watterson.
@@ -30,10 +29,10 @@ namespace Input
         public int health;
         [FormerlySerializedAs("_move")] [SerializeField] private float move;
         
-        //物品欄
-        [SerializeField] private UIInventory uiInventory;
-        private Inventory _inventory;
-
+        //玩家背包
+        
+        
+        
 #pragma warning disable 108,114
         private void Awake()
 #pragma warning restore 108,114
@@ -47,9 +46,6 @@ namespace Input
             _playerInputActions.Player1.Movement.performed += OnMovementInput;
             
             //載入物品欄
-            _inventory = new Inventory();
-            uiInventory.SetPlayer(this);
-            uiInventory.SetInventory(_inventory);
 
             
         }
@@ -81,30 +77,25 @@ namespace Input
         private void OnTriggerEnter(Collider other)
         {
             //定義物件
-            var itemWorld = other.GetComponent<ItemWorld>();
-
-            if (itemWorld != null)
-            {
-                //touching item
-                _inventory.AddItem(itemWorld.GetItem());
-                itemWorld.DestroySelf();
-            }
             
-            if (other.CompareTag("Item"))
+           /* if (other.CompareTag("Item"))
             {
-                ItemScript.Instance.ApproachItem();
+                //ItemScript.Instance.ApproachItem();
             }
             if (other.CompareTag("ActiveItem") && other.name == "ActiveBomb")
             {
                 health--;
                 Debug.Log("P1 Health: " + health);
                 Destroy(other.gameObject);
-            }
+            }*/
+           
+
+           
         }
 
         private void OnTriggerExit(Collider other)
         {
-            ItemScript.Instance.UnApproachItem();
+            //ItemScript.Instance.UnApproachItem();
         }
 
 
