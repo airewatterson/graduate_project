@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using General;
+using Item;
 using UnityEngine.Serialization;
 
 //Code written by Aire Watterson.
@@ -47,7 +48,7 @@ namespace Input
             
             //載入物品欄
 
-            
+            health = ItemScript.Instance.hp;
         }
 
         private void Update()
