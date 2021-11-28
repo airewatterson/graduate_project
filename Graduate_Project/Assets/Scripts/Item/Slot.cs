@@ -7,19 +7,22 @@ namespace Item
     public class Slot : SingletonMonoBehavior<Slot>
     {
         private Inventory _inventory;
+        private Inventory _inventoryP2;
         public int i;
 
         private void Start()
         {
             _inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+            _inventoryP2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<Inventory>();
         }
 
         private void Update()
         {
-            if (transform.childCount <= 0)
+            /*if (transform.childCount <= 0)
             {
                 _inventory.isFull[i] = false;
-            }
+            }*/
+            
         }
 
         public void DropItem()
@@ -27,7 +30,7 @@ namespace Item
             foreach (Transform child in transform)
             {
                 child.GetComponent<Spawn>().SpawnDroppedItem();
-                GameObject.Destroy(child.gameObject);
+                Destroy(child.gameObject);
             }
         }
     }

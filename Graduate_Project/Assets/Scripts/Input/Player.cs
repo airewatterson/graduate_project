@@ -15,11 +15,11 @@ namespace Input
     {
         //指定控制物件
         [SerializeField] private GameObject itemActive;
-        [SerializeField] private GameObject takingItem;
 
         //導入InputSystem代碼
         private PlayerInputActions _playerInputActions;
         private CharacterController _characterController;
+        
 
         //Vector2轉Vector3的指定數值，由inputsystem自動轉換
         private Vector2 _currentMovementInput;
@@ -27,7 +27,6 @@ namespace Input
         private bool _isMovementPressed;
 
         //玩家數值
-        public int health;
         [FormerlySerializedAs("_move")] [SerializeField] private float move;
         
         //玩家背包
@@ -47,8 +46,6 @@ namespace Input
             _playerInputActions.Player1.Movement.performed += OnMovementInput;
             
             //載入物品欄
-
-            health = ItemScript.Instance.hp;
         }
 
         private void Update()
@@ -73,23 +70,7 @@ namespace Input
             _currentMovement.z = _currentMovementInput.y;
             _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
         }
-        
 
-        private void OnTriggerEnter(Collider other)
-        {
-            //定義物件
-            
-          
-            if (other.CompareTag("ActiveItem") && other.name == "ActiveBomb")
-            {
-                health--;
-                Debug.Log("P1 Health: " + health);
-                Destroy(other.gameObject);
-            }
-           
-
-           
-        }
 
         private void OnTriggerExit(Collider other)
         {
@@ -111,9 +92,6 @@ namespace Input
             {
                 Destroy(this.gameObject);
             }*/
-        }
-        public Vector3 GetPosition() {
-            return transform.position;
         }
 
         /*public void UseItem(GameObject takePoint, bool isTaking)

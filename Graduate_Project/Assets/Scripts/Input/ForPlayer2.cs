@@ -19,7 +19,6 @@ namespace Input
         private bool _isMovementPressed;
         
         //玩家數值
-        public int health;
         [SerializeField] private float move;
         
 
@@ -57,13 +56,6 @@ namespace Input
             _currentMovement.z = _currentMovementInput.y;
             _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
         }
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Item"))
-            {
-                //ItemScript.Instance.ApproachItem();
-            }
-        }
 
         private void OnTriggerExit(Collider other)
         {
@@ -74,6 +66,7 @@ namespace Input
 
         public void TakeItem(Collider other)
         {
+            /*
             if (other.CompareTag("Item") && other.name == "TestBomb")
             {
                 other.gameObject.SetActive(false);
@@ -83,7 +76,7 @@ namespace Input
             if (health == 0)
             {
                 Destroy(this.gameObject);
-            }
+            }*/
         }
         
     }

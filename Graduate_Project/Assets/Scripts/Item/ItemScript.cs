@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using General;
 using Input;
+using TMPro;
 using UnityEngine;
 
 namespace Item
@@ -13,7 +14,10 @@ namespace Item
         private Transform _player1;
         
         //HP
-        public int hp;
+        [SerializeField] private int player1Hp;
+        [SerializeField] private int player2Hp;
+        private TextMeshProUGUI _player1HpOnUi;
+        private TextMeshProUGUI _player2HpOnUi;
         
         //LandMine
         public GameObject landMine;
@@ -22,14 +26,18 @@ namespace Item
 
         private void Start()
         {
+            player1Hp = 3;
+            player2Hp = 3;
             _player1 = GameObject.FindGameObjectWithTag("Player").transform;
             _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            hp = _player.health;
+            _player1HpOnUi = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
+            _player2HpOnUi = GameObject.Find("Text2").GetComponent<TextMeshProUGUI>();
         }
 
         private void Update()
         {
-            hp = _player.health;
+            //_player1HpOnUi.text = player1Hp.ToString();
+            
         }
 
         public void Use()
@@ -41,9 +49,21 @@ namespace Item
 
         public void Healing()
         {
-            hp++;
-            Debug.Log(Player.Instance.health);
-            Destroy(gameObject);
+            if (GameObject.Find("Player1").GetComponent<Player>())
+            {
+                player1Hp++;
+                _player1HpOnUi.text = player1Hp.ToString(); 
+                Debug.Log(player1Hp);
+                Destroy(gameObject);
+            }
+            else if (GameObject.Find("Player2").GetComponent<ForPlayer2>())
+            {
+                player2Hp++;
+                _player2HpOnUi.text = player2Hp.ToString(); 
+                Debug.Log(player2Hp); 
+                Destroy(gameObject);
+            }
+            
         }
 
         public void LandMine()
