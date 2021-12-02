@@ -7,3 +7,4 @@ EditorBuildSettings:
   m_Scenes: []
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 1df8185e2931bf14092a261eab45ba95, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 2fb1aea71343d70418967d330c72073e, type: 2}

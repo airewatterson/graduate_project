@@ -8,6 +8,7 @@ TagManager:
   - SpetialItem
   - ActiveItem
   - Player2
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - P1 Cam
   - P2 Cam
-  - 
-  - 
+  - Player1
+  - Player2
   - 
   - 
   - 
