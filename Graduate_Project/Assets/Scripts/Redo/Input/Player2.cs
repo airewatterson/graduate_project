@@ -1,10 +1,13 @@
-﻿namespace Redo.Input
+﻿using UnityEngine;
+
+namespace Redo.Input
 {
     public class Player2 : InputDefine
     {
-        
-        private void Start()
+        public override void Awake()
         {
+            PlayerInputActions = new PlayerInputActions();
+            rigidbody = GetComponent<Rigidbody>();
             PlayerInputActions.Player2.Movement.started += OnMovementInput;
             PlayerInputActions.Player2.Movement.canceled += OnMovementInput;
             PlayerInputActions.Player2.Movement.performed += OnMovementInput;

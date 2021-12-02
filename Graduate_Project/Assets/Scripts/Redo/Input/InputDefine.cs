@@ -1,6 +1,7 @@
 ﻿using General;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Redo.Input
 {
@@ -15,11 +16,14 @@ namespace Redo.Input
 
         //Vector2轉Vector3的指定數值，由inputsystem自動轉換
         private Vector2 _currentMovementInput;
-        internal Vector3 CurrentMovement;
-        private bool _isMovementPressed;
+        private Vector3 _currentMovement;
+        [FormerlySerializedAs("_isMovementPressed")] [SerializeField] private bool isMovementPressed;
 
         //玩家移動數值
         [SerializeField] internal float movement;
+        
+        //是否正在移動
+        private bool _move;
 
         #endregion
         
@@ -28,9 +32,27 @@ namespace Redo.Input
         protected void OnMovementInput(InputAction.CallbackContext ctx)
         {
             _currentMovementInput = ctx.ReadValue<Vector2>();
-            CurrentMovement.x = _currentMovementInput.x;
-            CurrentMovement.y = _currentMovementInput.y;
-            _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
+            _currentMovement.x = _currentMovementInput.x;
+            _currentMovement.y = _currentMovementInput.y;
+            isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
+        }
+        
+        private void Update()
+        {
+            _move = false;
+            Vector3 movePosition;
+            var vector = new Vector3(0, 0, 0);
+
+            if (!isMovementPressed)
+            {
+                movePosition = vector;
+            }
+            else
+            {
+                movePosition = _currentMovement * movement * Time.deltaTime;
+            }
+            
+            transform.Translate(movePosition);
         }
 
     }

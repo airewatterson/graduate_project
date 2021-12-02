@@ -14,11 +14,6 @@ namespace Redo.Input
             PlayerInputActions.Player1.Movement.performed += OnMovementInput;
         }
         
-        private void Update()
-        {
-            var movePosition = CurrentMovement * movement * Time.deltaTime;
-            transform.Translate(movePosition);
-        }
         
         private void OnEnable()
         {
