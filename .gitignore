@@ -3,11 +3,15 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 /[Ll]ibrary/
+/[Gg]raduate_[Pp]roject/[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
+/[Gg]raduate_[Pp]roject/[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
+/[Gg]raduate_[Pp]roject/[Ll]ogs/
+/[Gg]raduate_[Pp]roject/obj/Debug
 /[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
