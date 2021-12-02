@@ -70,6 +70,28 @@ namespace Old.Input
         }
 
 
+<<<<<<< Updated upstream:Graduate_Project/Assets/Scripts/Old/Input/Player.cs
+=======
+      
+
+
+
+        public void TakeItem(Collider other)
+        {
+            /*
+            if (other.CompareTag("Item") && other.name == "TestBomb")
+            {
+                other.gameObject.SetActive(false);
+                itemActive.SetActive(true);
+                health -= 1;
+            }
+            if (health == 0)
+            {
+                Destroy(this.gameObject);
+            }*/
+        }
+
+>>>>>>> Stashed changes:Graduate_Project/Assets/Scripts/Input/Player.cs
         /*public void UseItem(GameObject takePoint, bool isTaking)
         {
             if (itemActive && )
