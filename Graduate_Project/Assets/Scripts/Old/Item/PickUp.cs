@@ -6,6 +6,7 @@ namespace Item
 {
     public class PickUp : SingletonMonoBehavior<PickUp>
     {
+        
         private Inventory _inventory;
         private Inventory _inventoryP2;
         public GameObject itemButton;

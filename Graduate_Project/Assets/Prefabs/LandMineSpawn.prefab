@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5229986453795077664}
   - component: {fileID: 5229986453795077671}
   - component: {fileID: 5229986453795077670}
-  - component: {fileID: 5229986453795077851}
   - component: {fileID: 5229986453795077668}
+  - component: {fileID: 7807406673710555390}
   m_Layer: 0
   m_Name: LandMineSpawn
   m_TagString: Item
@@ -27,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5229986453795077850}
-  m_LocalRotation: {x: 0.34793898, y: -0, z: -0, w: 0.9375172}
+  m_LocalRotation: {x: 0.34794208, y: 0, z: 0, w: 0.9375161}
   m_LocalPosition: {x: 0, y: 2.3037553, z: -2.7473652}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,19 +101,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5229986453795077851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5229986453795077850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2664bd4d3780d24a959b5560cea0468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemButton: {fileID: 7321474797683258317, guid: 249606974f7d8f246923a7a4ba5f4a90, type: 3}
 --- !u!65 &5229986453795077668
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,3 +114,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.58, y: 0.75756884, z: 0.30464482}
   m_Center: {x: 0, y: -0.002603531, z: -0.013786197}
+--- !u!114 &7807406673710555390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229986453795077850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fe6f89f49ca144491afcc5ccf4f454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  itemButton: {fileID: 7321474797683258317, guid: 249606974f7d8f246923a7a4ba5f4a90, type: 3}
