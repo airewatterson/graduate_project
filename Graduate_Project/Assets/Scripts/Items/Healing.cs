@@ -1,7 +1,9 @@
-﻿using Redo.Inventory;
+﻿using Inventory;
+using Items.Func;
+using Redo;
 using UnityEngine;
 
-namespace Redo.Items
+namespace Items
 {
     public class Healing : ItemInfo
     {

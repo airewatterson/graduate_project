@@ -1,7 +1,8 @@
 ﻿using General;
+using Redo;
 using UnityEngine;
 
-namespace Redo.Items
+namespace Items.Func
 {
     public class Spawn : SingletonMonoBehavior<Spawn>
     {

@@ -1,7 +1,7 @@
 using General;
 using UnityEngine;
 
-namespace Redo.Inventory
+namespace Inventory
 {
     public class Inventory : SingletonMonoBehavior<Inventory>
     {

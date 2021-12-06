@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Redo.Input
+namespace Input
 {
     public class Player1 : InputDefine
     {

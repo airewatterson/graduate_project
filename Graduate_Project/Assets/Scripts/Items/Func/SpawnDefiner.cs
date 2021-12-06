@@ -1,7 +1,8 @@
-using Redo.Inventory;
+using Inventory;
+using Redo;
 using UnityEngine;
 
-namespace Redo.Items
+namespace Items.Func
 {
     public class SpawnDefiner : Spawn
     {

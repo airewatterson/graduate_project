@@ -1,8 +1,8 @@
 using General;
-using Redo.Items;
+using Items.Func;
 using UnityEngine;
 
-namespace Redo.Inventory
+namespace Inventory
 {
     public class Slot : SingletonMonoBehavior<Slot>
     {
@@ -10,14 +10,14 @@ namespace Redo.Inventory
         [SerializeField] private GameObject player2;
         
         
-        private Inventory _inventoryP1;
-        private Inventory _inventoryP2;
+        private global::Inventory.Inventory _inventoryP1;
+        private global::Inventory.Inventory _inventoryP2;
         [SerializeField] private int i;
 
         private void Start()
         {
-            _inventoryP1 = player1.GetComponent<Inventory>();
-            _inventoryP2 = player2.GetComponent<Inventory>();
+            _inventoryP1 = player1.GetComponent<global::Inventory.Inventory>();
+            _inventoryP2 = player2.GetComponent<global::Inventory.Inventory>();
         }
 
         private void Update()

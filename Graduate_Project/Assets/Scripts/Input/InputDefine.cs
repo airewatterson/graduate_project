@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-namespace Redo.Input
+namespace Input
 {
     public class InputDefine : SingletonMonoBehavior<InputDefine>
     {
