@@ -126,6 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fe6f89f49ca144491afcc5ccf4f454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  player1: {fileID: 8179805991281655488, guid: 5371b59f7b5412d4db6b9aa556323c50, type: 3}
+  player2: {fileID: 5459648198934788899, guid: 9c56e3ebdf4034d40b7f8ef5c303d4c1, type: 3}
   itemButton: {fileID: 7321474797683258317, guid: 249606974f7d8f246923a7a4ba5f4a90, type: 3}

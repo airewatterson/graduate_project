@@ -1,8 +1,7 @@
-using System;
 using General;
 using UnityEngine;
 
-namespace Redo.Items.Func
+namespace Redo.Items
 {
     public class Pickup : SingletonMonoBehavior<Pickup>
     {
@@ -17,20 +16,21 @@ namespace Redo.Items.Func
 
         private void Start()
         {
+            player1 = GameManager.Instance.player1;
+            player2 = GameManager.Instance.player2;
             _inventoryP1 = player1.GetComponent<Inventory.Inventory>();
             _inventoryP2 = player2.GetComponent<Inventory.Inventory>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            switch (other.gameObject.name)
+            if (other.gameObject == player1)
             {
-                case "Player":
-                    P1();
-                    break;
-                case "Player2":
-                    P2();
-                    break;
+                P1();
+            }
+            else if (other.gameObject == player2)
+            {
+                P2();
             }
         }
 
@@ -38,12 +38,15 @@ namespace Redo.Items.Func
         {
             for (var i = 0; i < _inventoryP1.slots.Length; i++)
             {
-                if (_inventoryP1.isFull[i] != false) continue;
-                //Items can be added into inventory.
-                _inventoryP1.isFull[i] = true;
-                Instantiate(itemButton,_inventoryP1.slots[i].transform,false);
-                Destroy(gameObject);
-                break;
+                if (_inventoryP1.isFull[i] == false)
+                {
+                    //Items can be added into inventory.
+                    _inventoryP1.isFull[i] = true;
+                    Instantiate(itemButton,_inventoryP1.slots[i].transform,false);
+                    Destroy(gameObject);
+                    break;
+                }
+                
             }
         }
 
@@ -52,12 +55,14 @@ namespace Redo.Items.Func
         {
             for (var i = 0; i < _inventoryP2.slots.Length; i++)
             {
-                if (_inventoryP2.isFull[i] != false) continue;
-                //Items can be added into inventory.
-                _inventoryP2.isFull[i] = true;
-                Instantiate(itemButton,_inventoryP2.slots[i].transform,false);
-                Destroy(gameObject);
-                break;
+                if (_inventoryP2.isFull[i] == false)
+                {
+                    //Items can be added into inventory.
+                    _inventoryP2.isFull[i] = true;
+                    Instantiate(itemButton,_inventoryP2.slots[i].transform,false);
+                    Destroy(gameObject);
+                    break;
+                }
             }
         }
     }

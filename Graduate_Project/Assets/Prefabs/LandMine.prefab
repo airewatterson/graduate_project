@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 3295201684223974104}
   - component: {fileID: 9175222016032549409}
   - component: {fileID: 5941767872921092202}
-  - component: {fileID: -6471826210517709909}
-  - component: {fileID: 186232100991191222}
+  - component: {fileID: 687606050749510389}
   m_Layer: 5
   m_Name: LandMine
   m_TagString: Untagged
@@ -134,7 +133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-6471826210517709909
+--- !u!114 &687606050749510389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,23 +142,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7321474797683258317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db89cea3879f8444a99a08a48327a3a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 999068ccdfcd1ea40b022805ab238511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 5229986453795077850, guid: 80167eaaf6731174982e5f429c692274, type: 3}
---- !u!114 &186232100991191222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7321474797683258317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ac5eae25506c247902fb1a65f9c3e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effect: {fileID: 0}
-  hp: 0
-  landMine: {fileID: 0}
-  awaitFlag: {fileID: 0}
+  player1: {fileID: 8179805991281655488, guid: 5371b59f7b5412d4db6b9aa556323c50, type: 3}
+  player2: {fileID: 5459648198934788899, guid: 9c56e3ebdf4034d40b7f8ef5c303d4c1, type: 3}

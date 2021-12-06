@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 8579742290729526839}
   - component: {fileID: 8579742290729526836}
   - component: {fileID: 5526676685344718724}
-  - component: {fileID: -3585638019103750577}
-  - component: {fileID: 2045706154917815319}
+  - component: {fileID: 2414142367934518038}
   m_Layer: 5
   m_Name: Healing
   m_TagString: Untagged
@@ -122,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2045706154917815319}
-        m_TargetAssemblyTypeName: Item.ItemScript, Assembly-CSharp
-        m_MethodName: Healing
+      - m_Target: {fileID: 2414142367934518038}
+        m_TargetAssemblyTypeName: Redo.Items.Healing, Assembly-CSharp
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -134,7 +133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-3585638019103750577
+--- !u!114 &2414142367934518038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,24 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8579742290729526842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db89cea3879f8444a99a08a48327a3a3, type: 3}
+  m_Script: {fileID: 11500000, guid: d65e425121e349a6ab54c81a848f7044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 7171049708657894050, guid: bc5ec62a399254d43b35d72a94efbe14, type: 3}
---- !u!114 &2045706154917815319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579742290729526842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ac5eae25506c247902fb1a65f9c3e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effect: {fileID: 0}
-  player1Hp: 0
-  player2Hp: 0
-  landMine: {fileID: 0}
-  awaitFlag: {fileID: 0}
+  itemEffectHp: 1

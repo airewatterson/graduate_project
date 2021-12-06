@@ -1,18 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+using General;
+using Redo.Items;
 using UnityEngine;
 
-public class Slot : MonoBehaviour
+namespace Redo.Inventory
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Slot : SingletonMonoBehavior<Slot>
     {
+        [SerializeField] private GameObject player1;
+        [SerializeField] private GameObject player2;
         
-    }
+        
+        private Inventory _inventoryP1;
+        private Inventory _inventoryP2;
+        [SerializeField] private int i;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Start()
+        {
+            _inventoryP1 = player1.GetComponent<Inventory>();
+            _inventoryP2 = player2.GetComponent<Inventory>();
+        }
+
+        private void Update()
+        {
+            if (transform.childCount > 0) return;
+            _inventoryP1.isFull[i] = false;
+            _inventoryP2.isFull[i] = false;
+        }
+
+        public void DropItem()
+        {
+            foreach (Transform child in transform)
+            {
+                child.GetComponent<SpawnDefiner>().SpawnObject();
+                Destroy(child.gameObject);
+            }
+        }
     }
 }
