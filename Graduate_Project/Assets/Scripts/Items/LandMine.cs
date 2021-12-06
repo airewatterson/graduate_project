@@ -1,9 +1,8 @@
-using General;
 using UnityEngine;
 
-namespace Item
+namespace Redo.Items
 {
-    public class ItemForPlayer2 : SingletonMonoBehavior<ItemForPlayer2>
+    public class LandMine : ItemInfo
     {
         // Start is called before the first frame update
         void Start()
