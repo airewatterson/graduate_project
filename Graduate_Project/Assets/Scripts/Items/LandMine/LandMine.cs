@@ -22,9 +22,12 @@ namespace Items.LandMine
             }
             else if (GetComponentInParent<Slot>().transform.parent.CompareTag("Player2"))
             {
-                
+                Instantiate(flag, new Vector3(player2Pos.x,player2Pos.y,player2Pos.z) , quaternion.identity);
             }
-            Destroy(gameObject);
+
+            GameObject o;
+            (o = gameObject).SetActive(false);
+            Destroy(o);
         }
     }
 }

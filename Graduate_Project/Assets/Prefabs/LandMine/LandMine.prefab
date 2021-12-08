@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3295201684223974104}
   - component: {fileID: 9175222016032549409}
   - component: {fileID: 5941767872921092202}
-  - component: {fileID: 687606050749510389}
+  - component: {fileID: 1471113051507331359}
   m_Layer: 5
   m_Name: LandMine
   m_TagString: Untagged
@@ -121,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4695773918960462605, guid: 324f62e8305033f458a96ea0c8652949, type: 3}
-        m_TargetAssemblyTypeName: Item.ItemScript, Assembly-CSharp
-        m_MethodName: LandMine
+      - m_Target: {fileID: 1471113051507331359}
+        m_TargetAssemblyTypeName: Items.LandMine.LandMine, Assembly-CSharp
+        m_MethodName: PutFlag
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &687606050749510389
+--- !u!114 &1471113051507331359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,9 +142,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7321474797683258317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 999068ccdfcd1ea40b022805ab238511, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a9dd1e79aa3edd428c34b35c0b78d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 5229986453795077850, guid: 80167eaaf6731174982e5f429c692274, type: 3}
-  player1: {fileID: 8179805991281655488, guid: 5371b59f7b5412d4db6b9aa556323c50, type: 3}
-  player2: {fileID: 5459648198934788899, guid: 9c56e3ebdf4034d40b7f8ef5c303d4c1, type: 3}
+  itemEffectHp: 1
+  flag: {fileID: 4817328474890208271, guid: e09842f290375ef46956b9edf55accab, type: 3}
+  mine: {fileID: 4840347478075159177, guid: 35831026ac3bbc94aa79f38a75a3ef74, type: 3}
