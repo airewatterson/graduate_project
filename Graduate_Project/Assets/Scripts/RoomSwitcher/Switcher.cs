@@ -1,4 +1,5 @@
 using General;
+using Redo;
 using UnityEngine;
 
 namespace RoomSwitcher
@@ -9,24 +10,38 @@ namespace RoomSwitcher
         [SerializeField] private Camera cameraP2Pos;
         [SerializeField] private Transform originRoomCenter;
         [SerializeField] private Transform destinationRoomCenter;
-        
-        [SerializeField] private GameObject targetRoom;
 
+        //移動玩家位置
+        private GameObject _player;
+        [SerializeField] private GameObject targetRoom;
+        
+        //移動鏡頭速度
         public float moveSp;
+        
+        //指定下間房間位置
+        [Header("指定房間方位，一間房間僅允許勾選一項")]
+        [SerializeField] private bool up;
+        [SerializeField] private bool down;
+        [SerializeField] private bool left;
+        [SerializeField] private bool right;
 
         private void OnTriggerEnter(Collider other)
         {
 
             if (other.gameObject.CompareTag("Player"))
             {
+                _player = GameManager.Instance.player1;
                 RoomSwitchP1();
-                Debug.Log("R1toR2_P1ok");
+                PlayerSwitch();
+                Debug.Log("Room1 to Room2 : Player1");
             }
 
             else if (other.gameObject.CompareTag("Player2"))
             {
+                _player = GameManager.Instance.player2;
                 RoomSwitchP2();
-                Debug.Log("R1toR2_P2ok");
+                PlayerSwitch();
+                Debug.Log("Room1 to Room2 : Player2");
             }
         }
 
@@ -39,7 +54,22 @@ namespace RoomSwitcher
             cameraP2Pos.transform.position = Vector3.Lerp(originRoomCenter.position, destinationRoomCenter.position, Time.deltaTime * moveSp);
         }
 
-
+        private void PlayerSwitch()
+        {
+            var positionPlayer = _player.transform.position;
+            var position = targetRoom.transform.position;
+            if (left)
+            {
+                
+                _player.transform.position = new Vector3(position.x+1f,positionPlayer.y,positionPlayer.z);
+            }
+            else if (right)
+            {
+                _player.transform.position = new Vector3(position.x-1f,positionPlayer.y,positionPlayer.z);
+            }
+            
+            
+        }
 
     }
 }
