@@ -1,5 +1,5 @@
+using System.Security.AccessControl;
 using General;
-using Redo;
 using UnityEngine;
 
 namespace RoomSwitcher
@@ -58,16 +58,23 @@ namespace RoomSwitcher
         {
             var positionPlayer = _player.transform.position;
             var position = targetRoom.transform.position;
-            if (left)
+            if (right)
             {
                 
                 _player.transform.position = new Vector3(position.x+1f,positionPlayer.y,positionPlayer.z);
             }
-            else if (right)
+            else if (left)  
             {
                 _player.transform.position = new Vector3(position.x-1f,positionPlayer.y,positionPlayer.z);
             }
-            
+            else if (down)  
+            {
+                _player.transform.position = new Vector3(positionPlayer.x,positionPlayer.y,position.z-1.5f);
+            }
+            else if (up)  
+            {
+                _player.transform.position = new Vector3(positionPlayer.x,positionPlayer.y,position.z+1.5f);
+            }
             
         }
 
