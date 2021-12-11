@@ -61,11 +61,11 @@ namespace RoomSwitcher
             if (right)
             {
                 
-                _player.transform.position = new Vector3(position.x+1f,positionPlayer.y,positionPlayer.z);
+                _player.transform.position = new Vector3(position.x+1.5f,positionPlayer.y,positionPlayer.z);
             }
             else if (left)  
             {
-                _player.transform.position = new Vector3(position.x-1f,positionPlayer.y,positionPlayer.z);
+                _player.transform.position = new Vector3(position.x-1.5f,positionPlayer.y,positionPlayer.z);
             }
             else if (down)  
             {

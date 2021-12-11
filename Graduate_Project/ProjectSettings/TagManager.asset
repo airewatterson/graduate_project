@@ -9,6 +9,7 @@ TagManager:
   - ActiveItem
   - Player2
   - Door
+  - Exit
   layers:
   - Default
   - TransparentFX
