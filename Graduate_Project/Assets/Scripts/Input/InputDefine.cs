@@ -33,7 +33,7 @@ namespace Input
         {
             _currentMovementInput = ctx.ReadValue<Vector2>();
             _currentMovement.x = _currentMovementInput.x;
-            _currentMovement.y = _currentMovementInput.y;
+            _currentMovement.z = _currentMovementInput.y;
             isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
         }
         

@@ -8,17 +8,21 @@ namespace Items.LandMine
     {
         private void OnTriggerEnter(Collider other)
         {
+            player1Hp = GameManager.Instance.player1Hp; 
+            player2Hp = GameManager.Instance.player2Hp;
             if (other.transform.CompareTag("Player"))
             {
-                Player1Hp -= itemEffectHp;
-                Debug.Log("P1 HP = " + Player1Hp);
-                GameManager.Instance.player1Hp = Player1Hp;
+                //player1Hp = GameManager.Instance.player1Hp; 
+                player1Hp --;
+                Debug.Log("P1 HP = " + player1Hp);
+                GameManager.Instance.player1Hp = player1Hp;
             }
             else if (other.transform.CompareTag("Player2"))
             {
-                Player2Hp -= itemEffectHp;
-                Debug.Log("P2 HP = " + Player2Hp);
-                GameManager.Instance.player2Hp = Player2Hp;
+                //player2Hp = GameManager.Instance.player2Hp;
+                player2Hp --;
+                Debug.Log("P2 HP = " + player2Hp);
+                GameManager.Instance.player2Hp = player2Hp;
             }
 
             Destroy(gameObject);

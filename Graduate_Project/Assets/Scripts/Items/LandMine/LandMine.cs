@@ -13,8 +13,8 @@ namespace Items.LandMine
 
         public void PutFlag()
         {
-            var player1Pos = Player1.transform.position;
-            var player2Pos = Player2.transform.position;
+            var player1Pos = player1.transform.position;
+            var player2Pos = player2.transform.position;
             if (GetComponentInParent<Slot>().transform.parent.CompareTag("Player"))
             {
                 Instantiate(flag, new Vector3(player1Pos.x,player1Pos.y,player1Pos.z) , quaternion.identity);

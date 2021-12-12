@@ -10,16 +10,16 @@ namespace Items
         {
             if (GetComponentInParent<Slot>().transform.parent.CompareTag("Player"))
             {
-                Player1Hp += itemEffectHp;
-                Debug.Log("P1 HP = " + Player1Hp);
-                GameManager.Instance.player1Hp = Player1Hp;
+                player1Hp += itemEffectHp;
+                Debug.Log("P1 HP = " + player1Hp);
+                GameManager.Instance.player1Hp = player1Hp;
                 Destroy(gameObject);
             }
             else if (GetComponentInParent<Slot>().transform.parent.CompareTag("Player2"))
             {
-                Player2Hp += itemEffectHp;
-                Debug.Log("P2 HP = " + Player2Hp);
-                GameManager.Instance.player2Hp = Player2Hp;
+                player2Hp += itemEffectHp;
+                Debug.Log("P2 HP = " + player2Hp);
+                GameManager.Instance.player2Hp = player2Hp;
                 Destroy(gameObject);
             }
         }

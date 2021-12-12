@@ -1,10 +1,18 @@
+using System;
 using UnityEngine;
 
 namespace Input
 {
     public class Player1 : InputDefine
     {
+        private Animator _animator;
         // Start is called before the first frame update
+
+        private void Start()
+        {
+            _animator = GetComponentInChildren<Animator>();
+        }
+
         public override void Awake()
         {
             PlayerInputActions = new PlayerInputActions();
@@ -23,6 +31,14 @@ namespace Input
         private void OnDisable()
         {
             PlayerInputActions.Player1.Disable();
+        }
+
+        private void FixedUpdate()
+        {
+            /*if (UnityEngine.Input.GetButtonDown())
+            {
+                
+            }*/
         }
     }
 }

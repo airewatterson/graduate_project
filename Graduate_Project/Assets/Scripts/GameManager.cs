@@ -44,6 +44,18 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         player1CollectText.text = player1CollectItem.ToString();
         player2CollectText.text = player2CollectItem.ToString();
         ExitRole();
+
+        if (player1Hp<0)
+        {
+            player1Hp = 0;
+        }
+        else if (player2Hp < 0)
+        {
+            player2Hp = 0;
+        }
+        
+        DeadRule();
+        
     }
 
     private void ExitRole()
@@ -62,6 +74,33 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             isPlayer1Collected = false;
             isPlayer2Collected = false;
         }
+    }
+
+    private void DeadRule()
+    {
+        if (player1Hp <= 0)
+        {
+            player1.SetActive(false);
+            Invoke(nameof(RespawnP1),10);
+        }
+
+        if (player2Hp <= 0)
+        {
+            player2.SetActive(false);
+            Invoke(nameof(RespawnP2),10);
+        }
+    }
+
+
+    private void RespawnP1()
+    {
+        player1Hp = 3;
+        player1.SetActive(true);
+    }
+    private void RespawnP2()
+    {
+        player2Hp = 3;
+        player2.SetActive(true);
     }
 
 }
