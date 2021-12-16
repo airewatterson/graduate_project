@@ -12,7 +12,7 @@ namespace General
         private static AudioManager _instance;
 
         // Start is called before the first frame update
-        private void Start()
+        public override void Awake()
         {
             DontDestroyOnLoad(gameObject);
             if (_instance == null)
@@ -34,6 +34,13 @@ namespace General
                 sound.source.pitch = sound.pitch;
                 sound.source.loop = sound.loop;
             }
+
+            
+        }
+
+        private void Start()
+        {
+            Play("BGM");
         }
 
         public void Play(string soundName)
