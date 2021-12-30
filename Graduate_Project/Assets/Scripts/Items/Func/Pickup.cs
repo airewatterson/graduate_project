@@ -60,7 +60,7 @@ namespace Items.Func
                     //Items can be added into inventory.
                     _inventoryP2.isFull[i] = true;
                     Instantiate(itemButton,_inventoryP2.slots[i].transform,false);
-                    Destroy(gameObject);
+                   Destroy(gameObject);
                     break;
                 }
             }

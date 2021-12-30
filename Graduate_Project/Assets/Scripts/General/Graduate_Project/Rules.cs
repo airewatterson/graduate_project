@@ -9,12 +9,12 @@ namespace General.Graduate_Project
         {
             if (other.CompareTag("Player"))
             {
-                GameManager.Instance.player1CollectItem++;
+                //GameManager.Instance.player1CollectItem++;
                 gameObject.SetActive(false);
             }
             else if (other.CompareTag("Player2"))
             {
-                GameManager.Instance.player2CollectItem++;
+                //GameManager.Instance.player2CollectItem++;
                 gameObject.SetActive(false);
             }
 
