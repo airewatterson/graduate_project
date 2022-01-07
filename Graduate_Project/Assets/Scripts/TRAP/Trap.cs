@@ -1,23 +1,34 @@
+using System;
 using Input;
 using UnityEngine;
+using General;
 
 namespace TRAP
 {
     
     //看的懂。
-    public class Trap : GameManager
+    public class Trap : SingletonMonoBehavior<Trap>
     {
+        private Player1 _player1;
+        private Player2 _player2;
+        private void Start()
+        {
+            _player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
+            _player2 = GameObject.FindWithTag("Player2").GetComponent<Player2>();
+        }
+
+
         private void OnTriggerEnter(Collider col)
         {
             if (col.gameObject.CompareTag("Player"))
             {
-                Player1.Instance.movement-= 3f;
-                print(Player1.Instance.movement);
+                _player1.movement-= 3f;
+                print(_player1.movement);
             }
             else if (col.gameObject.CompareTag("Player2"))
             {
-                Player2.Instance.movement-= 3f;
-                print(Player2.Instance.movement);
+                _player2.movement-= 3f;
+                print(_player2.movement);
             }
        
         }
@@ -25,13 +36,13 @@ namespace TRAP
         {
             if (col.gameObject.CompareTag("Player"))
             {
-                Player1.Instance.movement += 3f;
-                print(Player1.Instance.movement);
+                _player1.movement += 3f;
+                print(_player1.movement);
             }
             else if (col.gameObject.CompareTag("Player2"))
             {
-                Player2.Instance.movement += 3f;
-                print(Player2.Instance.movement);
+                _player2.movement += 3f;
+                print(_player2.movement);
             }
         }
 
