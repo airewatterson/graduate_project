@@ -3,6 +3,7 @@
   <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Attack.cs" charset="x-windows-950" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/PoliceAI.cs" charset="x-windows-950" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Timer.cs" charset="Big5-HKSCS" />
     <file url="file://$PROJECT_DIR$/Assets/script/Interaction.cs" charset="x-windows-950" />
   </component>
 </project>

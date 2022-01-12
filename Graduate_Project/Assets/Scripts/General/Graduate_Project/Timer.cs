@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace General.Graduate_Project
 {
@@ -17,9 +19,25 @@ namespace General.Graduate_Project
         [FormerlySerializedAs("m_timer")] public Text mTimer;           //設定畫面倒數計時的文字
         [FormerlySerializedAs("m_gameOver")] public GameObject mGameOver;  //設定 GAME OVER 物件
 
+        
+
+        [SerializeField] private GameObject enemyPolice;
+        private int _enemyCount;
         private void Start()
         {
             StartCoroutine(Countdown());   //呼叫倒數計時的協程
+        }
+
+        private void Update()
+        {
+            if (mMin == 3 && mSec == 50 && _enemyCount < 1)
+            {
+                SpawnPolice();
+            }
+            else if (mMin == 2 && mSec == 00 && _enemyCount < 2)
+            {
+                SpawnPolice();
+            }
         }
 
         private IEnumerator Countdown()
@@ -52,6 +70,16 @@ namespace General.Graduate_Project
             yield return new WaitForSeconds(1);   //時間結束時，顯示 00:00 停留一秒
             mGameOver.SetActive(true);           //時間結束時，畫面出現 GAME OVER
             Time.timeScale = 0;                   //時間結束時，控制遊戲暫停無法操作
+        }
+        
+        private void SpawnPolice()
+        {
+            var xPos = Random.Range(5, 9);
+            var zPos = Random.Range(-7, 6);
+            Debug.Log("spawn");
+            Instantiate(enemyPolice, new Vector3(xPos,1.02f,zPos), Quaternion.identity);
+            
+            _enemyCount++;
         }
     }
 }
