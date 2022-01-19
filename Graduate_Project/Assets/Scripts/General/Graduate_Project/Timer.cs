@@ -22,6 +22,8 @@ namespace General.Graduate_Project
         
 
         [SerializeField] private GameObject enemyPolice;
+        [SerializeField] private GameObject enemyBoss;
+
         private int _enemyCount;
         private void Start()
         {
@@ -30,13 +32,14 @@ namespace General.Graduate_Project
 
         private void Update()
         {
-            if (mMin == 3 && mSec == 50 && _enemyCount < 1)
+            switch (mMin)
             {
-                SpawnPolice();
-            }
-            else if (mMin == 2 && mSec == 00 && _enemyCount < 2)
-            {
-                SpawnPolice();
+                case 3 when mSec == 50 && _enemyCount < 1:
+                    SpawnPolice();
+                    break;
+                case 2 when mSec == 00 && _enemyCount < 2:
+                    SpawnBoss();
+                    break;
             }
         }
 
@@ -78,6 +81,16 @@ namespace General.Graduate_Project
             var zPos = Random.Range(-7, 6);
             Debug.Log("spawn");
             Instantiate(enemyPolice, new Vector3(xPos,1.02f,zPos), Quaternion.identity);
+            
+            _enemyCount++;
+        }
+
+        private void SpawnBoss()
+        {
+            var xPos = Random.Range(5, 9);
+            var zPos = Random.Range(-7, 6);
+            Debug.Log("spawn");
+            Instantiate(enemyBoss, new Vector3(xPos,1.02f,zPos), Quaternion.identity);
             
             _enemyCount++;
         }

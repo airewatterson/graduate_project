@@ -13,6 +13,11 @@ namespace Input
             _animator = GetComponentInChildren<Animator>();
         }
 
+        private void FixedUpdate()
+        {
+            
+        }
+
         public override void Awake()
         {
             PlayerInputActions = new PlayerInputActions();
@@ -31,14 +36,6 @@ namespace Input
         private void OnDisable()
         {
             PlayerInputActions.Player1.Disable();
-        }
-
-        private void FixedUpdate()
-        {
-            /*if (UnityEngine.Input.GetButtonDown())
-            {
-                
-            }*/
         }
     }
 }

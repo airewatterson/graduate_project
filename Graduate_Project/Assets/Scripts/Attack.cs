@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using General;
+using Input;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,11 +15,13 @@ public class Attack : SingletonMonoBehavior<Attack>
     [FormerlySerializedAs("EnemyLayer")] public LayerMask enemyLayer;
     private static readonly int Attack1 = Animator.StringToHash("Attack");
 
+    [SerializeField]private KeyCode attackKey;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (UnityEngine.Input.GetKeyDown(KeyCode.G))
+        if (UnityEngine.Input.GetKeyDown(attackKey))
         {
             PlayerAttack();
         }
@@ -32,6 +35,8 @@ public class Attack : SingletonMonoBehavior<Attack>
         {
             Debug.Log("hit" + enemy.name);
             var police = enemy.GetComponent<PoliceAI>();
+            var player1 = enemy.GetComponent<Player1>();
+            var player2 = enemy.GetComponent<Player2>();
             if(police != null)
             {
                 police.TakeDamage(1);

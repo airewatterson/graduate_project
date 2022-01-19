@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 7400293106789602637}
   - component: {fileID: 7400293106789602638}
   m_Layer: 3
-  m_Name: police
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
   isPlayer:
     serializedVersion: 2
     m_Bits: 512
-  policeHealth: 3
+  policeHealth: 5
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   sightRange: 20
