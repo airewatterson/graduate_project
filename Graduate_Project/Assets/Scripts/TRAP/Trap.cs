@@ -11,7 +11,8 @@ namespace TRAP
     {
         private Player1 _player1;
         private Player2 _player2;
-        private void Start()
+
+        public override void Awake()
         {
             _player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
             _player2 = GameObject.FindWithTag("Player2").GetComponent<Player2>();

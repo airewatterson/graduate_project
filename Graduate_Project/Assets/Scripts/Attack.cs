@@ -35,11 +35,19 @@ public class Attack : SingletonMonoBehavior<Attack>
         {
             Debug.Log("hit" + enemy.name);
             var police = enemy.GetComponent<PoliceAI>();
-            var player1 = enemy.GetComponent<Player1>();
-            var player2 = enemy.GetComponent<Player2>();
+            var player1 = enemy.gameObject.GetComponent<Player1>();
+            var player2 = enemy.gameObject.GetComponent<Player2>();
             if(police != null)
             {
                 police.TakeDamage(1);
+            }
+            else if(player1 != null)
+            {
+                GameManager.Instance.player1Hp--;
+            }
+            else if (player2 != null)
+            {
+                GameManager.Instance.player2Hp--;
             }
         }
         
