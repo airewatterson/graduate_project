@@ -19,7 +19,8 @@ namespace General.Graduate_Project
         [FormerlySerializedAs("m_timer")] public Text mTimer;           //設定畫面倒數計時的文字
         [FormerlySerializedAs("m_gameOver")] public GameObject mGameOver;  //設定 GAME OVER 物件
 
-        
+        public AudioClip warning;//
+        private AudioSource Aud;//
 
         [SerializeField] private GameObject enemyPolice;
         [SerializeField] private GameObject enemyBoss;
@@ -27,7 +28,8 @@ namespace General.Graduate_Project
         private int _enemyCount;
         private void Start()
         {
-            StartCoroutine(Countdown());   //呼叫倒數計時的協程
+            StartCoroutine(Countdown());//呼叫倒數計時的協程
+            Aud = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -36,9 +38,13 @@ namespace General.Graduate_Project
             {
                 case 3 when mSec == 50 && _enemyCount < 1:
                     SpawnPolice();
+                    Aud.clip = warning;//
+                    Aud.Play();//
                     break;
                 case 2 when mSec == 00 && _enemyCount < 2:
                     SpawnBoss();
+                    Aud.clip = warning;//
+                    Aud.Play();//
                     break;
             }
         }

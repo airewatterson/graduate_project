@@ -15,15 +15,24 @@ public class Attack : SingletonMonoBehavior<Attack>
     [FormerlySerializedAs("EnemyLayer")] public LayerMask enemyLayer;
     private static readonly int Attack1 = Animator.StringToHash("Attack");
 
+    private AudioSource Atkaudio;
+    public AudioClip Punch;
+
     [SerializeField]private KeyCode attackKey;
 
 
     // Update is called once per frame
+    private void Start()
+    {
+        Atkaudio = GetComponent<AudioSource>();
+    }
     void Update()
     {
+        Atkaudio.clip = Punch; 
         if (UnityEngine.Input.GetKeyDown(attackKey))
         {
             PlayerAttack();
+            Atkaudio.Play();           
         }
     }
     private void PlayerAttack()
