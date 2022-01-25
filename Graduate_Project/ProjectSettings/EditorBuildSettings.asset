@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Sounds/Scenes/RedoScene.unity
+    path: Assets/Scenes/RedoScene.unity
     guid: fb26c1cb79b7bf9489eb6a2c2f07bfcd
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4fede6dae9ec87e4eafc154d0b45e3eb, type: 2}
