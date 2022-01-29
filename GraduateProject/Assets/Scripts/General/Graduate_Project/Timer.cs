@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -19,8 +20,8 @@ namespace General.Graduate_Project
         [FormerlySerializedAs("m_timer")] public Text mTimer;           //設定畫面倒數計時的文字
         [FormerlySerializedAs("m_gameOver")] public GameObject mGameOver;  //設定 GAME OVER 物件
 
-        public AudioClip warning;//
-        private AudioSource Aud;//
+        [SerializeField] private TextMeshProUGUI warning;//
+        private AudioSource _aud;//
 
         [SerializeField] private GameObject enemyPolice;
         [SerializeField] private GameObject enemyBoss;
@@ -33,16 +34,51 @@ namespace General.Graduate_Project
 
         private void Update()
         {
+            #region EventTimeline
+
             switch (mMin)
             {
+                #region PoliceSpawnWarning
+
+                case 3 when mSec == 53:
+                    warning.text = "Enemy spawn in 3 seconds";
+                    break;
+                case 3 when mSec == 52:
+                    warning.text = "Enemy spawn in 2 seconds";
+                    break;
+                case 3 when mSec == 51:
+                    warning.text = "Enemy spawn in 1 seconds";
+                    break;
+
+                #endregion
+                
                 case 3 when mSec == 50 && _enemyCount < 1:
+                    warning.text = "";
                     SpawnPolice();
+                    break;
+
+                #region BossWarning
+
+                case 2 when mSec == 03:
+                    warning.text = "Enemy spawn in 3 seconds";
+                    break;
+                case 2 when mSec == 02:
+                    warning.text = "Enemy spawn in 2 seconds";
+                    break;
+                case 2 when mSec == 01:
+                    warning.text = "Enemy spawn in 1 seconds";
+                    break;
+
+                #endregion
+                
+                case 2 when mSec == 00 && _enemyCount < 2:
+                    warning.text = "";
                     SpawnBoss();
                     break;
-                case 2 when mSec == 00 && _enemyCount < 2:
-                    
-                    break;
             }
+
+            #endregion
+            
         }
 
         private IEnumerator Countdown()
@@ -76,7 +112,10 @@ namespace General.Graduate_Project
             mGameOver.SetActive(true);           //時間結束時，畫面出現 GAME OVER
             Time.timeScale = 0;                   //時間結束時，控制遊戲暫停無法操作
         }
-        
+
+
+        #region EventHandler
+
         private void SpawnPolice()
         {
             var xPos = Random.Range(5, 9);
@@ -96,5 +135,10 @@ namespace General.Graduate_Project
             FindObjectOfType<AudioManager>().Play("Warning");
             _enemyCount++;
         }
+
+        #endregion
+        
+        
     }
+    
 }
