@@ -1,4 +1,6 @@
-﻿using Inventory;
+﻿using System;
+using Input;
+using Inventory;
 using Items.Func;
 using UnityEngine;
 
@@ -6,21 +8,25 @@ namespace Items
 {
     public class Healing : ItemInfo
     {
-        public void Heal()
+        private void OnTriggerEnter(Collider other)
         {
-            if (GetComponentInParent<Slot>().transform.parent.CompareTag("Player"))
+            if (other.GetComponent<Player1>().CompareTag("Player") && Player1Hp<5)
             {
-                player1Hp += itemEffectHp;
-                Debug.Log("P1 HP = " + player1Hp);
-                GameManager.Instance.player1Hp = player1Hp;
+                Player1Hp += itemEffectHp;
+                Debug.Log("P1 HP = " + Player1Hp);
+                GameManager.Instance.player1Hp = Player1Hp;
                 Destroy(gameObject);
             }
-            else if (GetComponentInParent<Slot>().transform.parent.CompareTag("Player2"))
+            else if (other.GetComponent<Player2>().CompareTag("Player2") && Player2Hp<5)
             {
-                player2Hp += itemEffectHp;
-                Debug.Log("P2 HP = " + player2Hp);
-                GameManager.Instance.player2Hp = player2Hp;
+                Player2Hp += itemEffectHp;
+                Debug.Log("P2 HP = " + Player2Hp);
+                GameManager.Instance.player2Hp = Player2Hp;
                 Destroy(gameObject);
+            }
+            else
+            {
+                print(other.name+"血量已滿");
             }
         }
     }
