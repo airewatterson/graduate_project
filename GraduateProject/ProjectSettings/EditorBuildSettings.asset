@@ -4,6 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/RedoScene.unity
+    guid: dc5910e94d2ae8a42bdb75c2103b2119
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ef4b3312b820841a0a63a4d6434fda70, type: 2}
