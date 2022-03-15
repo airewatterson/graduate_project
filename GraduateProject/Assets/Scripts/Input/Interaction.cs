@@ -21,7 +21,7 @@ namespace script
             {
                 if (!UnityEngine.Input.GetKeyDown(KeyCode.E)) return;
                 up.SetBool(Up, true);
-                if (GameManager.Instance.player1CollectItem < 1) { 
+                if (GameManager.Instance.player1CollectItem < 4) { 
                     var rollChance = Random.Range(1, 3); // 50 %  之後再別的物件改機率就好
                 
                     if (rollChance == 2) {
@@ -39,9 +39,9 @@ namespace script
             }
             else if (col.gameObject.CompareTag("Player2"))
             {
-                if (!UnityEngine.Input.GetKeyDown(KeyCode.R)) return;
+                if (!UnityEngine.Input.GetKeyDown(KeyCode.RightShift)) return;
                 up.SetBool(Up, true);
-                if (GameManager.Instance.player2CollectItem < 1)
+                if (GameManager.Instance.player2CollectItem < 4)
                 {
                     var rollChance = Random.Range(1, 3); // 50 %  之後再別的物件改機率就好
 

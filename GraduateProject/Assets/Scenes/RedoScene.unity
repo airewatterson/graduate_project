@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6481,7 +6481,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1536
-  attackKey: 103
+  attackKey: 113
 --- !u!114 &1165692031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11894,7 +11894,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1280
-  attackKey: 122
+  attackKey: 305
 --- !u!114 &2063327608
 MonoBehaviour:
   m_ObjectHideFlags: 0

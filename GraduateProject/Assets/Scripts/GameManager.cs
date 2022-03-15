@@ -69,19 +69,19 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     private void ExitRole()
     {
         //通關條件Flip-Flop開關
-        if (player1CollectItem >= 1)
+        if (player1CollectItem >= 4)
         {
             isPlayer1Collected = true;
         }
-        else if (player2CollectItem >= 1)
+        if (player2CollectItem >= 4)
         {
             isPlayer2Collected = true; 
         }
-        else
-        {
-            isPlayer1Collected = false;
-            isPlayer2Collected = false;
-        }
+        //else
+        //{
+        //    isPlayer1Collected = false;
+        //    isPlayer2Collected = false;
+        //}
     }
 
     private void DeadRule()
