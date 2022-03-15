@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Player2
+  - Enemy
+  - Room
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Room
+  - Water
+  - UI
+  - Player1Camera
+  - Player2Camera
+  - Player1
+  - Player2
+  - Enemy
+  - Manager
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
