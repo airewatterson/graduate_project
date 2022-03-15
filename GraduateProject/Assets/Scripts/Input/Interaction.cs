@@ -1,9 +1,10 @@
+using General;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace script
+namespace Input
 {
-    public class Interaction : MonoBehaviour
+    public class Interaction : SingletonMonoBehavior<Interaction>
     {
 
         [FormerlySerializedAs("UP")] public Animator up;
