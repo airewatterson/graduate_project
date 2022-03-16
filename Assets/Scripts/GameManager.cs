@@ -1,6 +1,5 @@
-using System;
+using UnityEngine.SceneManagement;
 using General;
-using Input;
 using TMPro;
 using UnityEngine;
 
@@ -63,6 +62,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         }
         
         DeadRule();
+        ResetScene();
         
     }
 
@@ -127,6 +127,13 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         }
 
     #endregion
-    
+
+    private void ResetScene()
+    {
+        if (UnityEngine.Input.GetKey(KeyCode.G))
+        {
+            SceneManager.LoadScene("RedoScene");
+        }
+    }
 
 }
