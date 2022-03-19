@@ -12,7 +12,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     //public GameObject player1HpOnUi;
     public int player1Hp;
     [SerializeField] internal TextMeshProUGUI hpTextP1;
-    [SerializeField] private TextMeshProUGUI player1CollectText;
+    //[SerializeField] private TextMeshProUGUI player1CollectText;
     
     public int player1CollectItem;
     [SerializeField] internal bool isPlayer1Collected;
@@ -27,7 +27,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     //public GameObject player2HpOnUi;
     public int player2Hp;
     [SerializeField] internal TextMeshProUGUI hpTextP2;
-    [SerializeField] private TextMeshProUGUI player2CollectText;
+    //[SerializeField] private TextMeshProUGUI player2CollectText;
     
     public int player2CollectItem;
     [SerializeField] internal bool isPlayer2Collected;
@@ -48,8 +48,8 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     {
         hpTextP1.text = player1Hp.ToString();
         hpTextP2.text = player2Hp.ToString();
-        player1CollectText.text = player1CollectItem.ToString();
-        player2CollectText.text = player2CollectItem.ToString();
+        //player1CollectText.text = player1CollectItem.ToString();
+        //player2CollectText.text = player2CollectItem.ToString();
         ExitRole();
 
         if (player1Hp<0)
