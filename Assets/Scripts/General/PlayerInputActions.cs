@@ -136,98 +136,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Player2"",
-            ""id"": ""0cf265f3-2b97-470c-a59b-d5563c8daea5"",
-            ""actions"": [
-                {
-                    ""name"": ""Use"",
-                    ""type"": ""Button"",
-                    ""id"": ""c3ae2f03-d16e-4844-bdf7-5811bac58da6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Movement"",
-                    ""type"": ""Value"",
-                    ""id"": ""1e32a4c8-a3e7-41d3-b7e5-a4d579c2d08f"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""NormalizeVector2"",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""925049d9-8c98-4eee-8c15-7d418a64fa0d"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Use"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""e993a905-48fb-4e93-a944-71335d85e01f"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""4881ce7c-c889-4aa5-a51f-b93059f73118"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""f0d17df1-f205-4207-8edd-4d696e724c7b"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""7f3812fd-5c62-4f71-a4a2-f189abc2fef0"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""247a6a03-d733-4033-9cfc-00a51e4ba8a3"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -248,10 +156,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Use = m_Player1.FindAction("Use", throwIfNotFound: true);
         m_Player1_Movement = m_Player1.FindAction("Movement", throwIfNotFound: true);
-        // Player2
-        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
-        m_Player2_Use = m_Player2.FindAction("Use", throwIfNotFound: true);
-        m_Player2_Movement = m_Player2.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -348,47 +252,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public Player1Actions @Player1 => new Player1Actions(this);
-
-    // Player2
-    private readonly InputActionMap m_Player2;
-    private IPlayer2Actions m_Player2ActionsCallbackInterface;
-    private readonly InputAction m_Player2_Use;
-    private readonly InputAction m_Player2_Movement;
-    public struct Player2Actions
-    {
-        private @PlayerInputActions m_Wrapper;
-        public Player2Actions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Use => m_Wrapper.m_Player2_Use;
-        public InputAction @Movement => m_Wrapper.m_Player2_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Player2; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
-        public void SetCallbacks(IPlayer2Actions instance)
-        {
-            if (m_Wrapper.m_Player2ActionsCallbackInterface != null)
-            {
-                @Use.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnUse;
-                @Use.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnUse;
-                @Use.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnUse;
-                @Movement.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
-            }
-            m_Wrapper.m_Player2ActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Use.started += instance.OnUse;
-                @Use.performed += instance.OnUse;
-                @Use.canceled += instance.OnUse;
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
-            }
-        }
-    }
-    public Player2Actions @Player2 => new Player2Actions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -399,11 +262,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public interface IPlayer1Actions
-    {
-        void OnUse(InputAction.CallbackContext context);
-        void OnMovement(InputAction.CallbackContext context);
-    }
-    public interface IPlayer2Actions
     {
         void OnUse(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);

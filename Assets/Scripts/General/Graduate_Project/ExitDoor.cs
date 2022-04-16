@@ -18,24 +18,13 @@ namespace General.Graduate_Project
                 //應該很好懂
                 _gameManager.player1StatusText.text = "Win";
                 _gameManager.player1Status.SetActive(true);
-                _gameManager.player2StatusText.text = "Lose";
-                _gameManager.player2Status.SetActive(true);
                 Time.timeScale = 0;
             }
-            else if (other.CompareTag("Player2") && _gameManager.isPlayer2Collected)
-            {
-                _gameManager.player1StatusText.text = "Lose";
-                _gameManager.player1Status.SetActive(true);
-                _gameManager.player2StatusText.text = "Win";
-                _gameManager.player2Status.SetActive(true);
-                Time.timeScale = 0;
-            }
+            
             else
             {
                 _gameManager.player1StatusText.text = "";
                 _gameManager.player1Status.SetActive(false);
-                _gameManager.player2StatusText.text = "";
-                _gameManager.player2Status.SetActive(false);
             }
         }
     }

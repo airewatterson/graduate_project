@@ -6,11 +6,10 @@ namespace Items.Func
     public class SpawnDefiner : Spawn
     {
         private Transform _playerDefining;
-        private GameManager _manager;
 
         private void Start()
         {
-            _manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            GameObject.Find("GameManager").GetComponent<GameManager>();
         }
 
         private void Update()
@@ -18,10 +17,6 @@ namespace Items.Func
             if (GetComponentInParent<Slot>().transform.parent.CompareTag("Player"))
             {
                 _playerDefining = player1.transform;
-            }
-            else if (GetComponentInParent<Slot>().transform.parent.CompareTag("Player2"))
-            {
-                _playerDefining = player2.transform;
             }
         }
         

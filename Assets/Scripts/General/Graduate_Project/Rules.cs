@@ -23,11 +23,6 @@ namespace General.Graduate_Project
                 gameObject.SetActive(true);
                 GameManager.Instance.player1CollectItem = 0;
             }
-            else if (GameManager.Instance.player2Hp == 0)
-            {
-                gameObject.SetActive(true);
-                GameManager.Instance.player2CollectItem = 0;
-            }
         }
         
 
