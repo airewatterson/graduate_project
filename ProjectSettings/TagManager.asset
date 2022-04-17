@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Room
   - WayPoints
+  - UI
   layers:
   - Default
   - TransparentFX
