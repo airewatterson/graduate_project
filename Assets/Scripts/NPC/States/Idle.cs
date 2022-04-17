@@ -5,6 +5,7 @@ namespace NPC.States
     [CreateAssetMenu(fileName = "IdleState", menuName = "EnemyStates/Idle", order = 1)]
     public class Idle : AbstractState
     {
+        [SerializeField] private Material fovVisible;
         [SerializeField] private float _idleDuration = 3f;
 
         private float _totalDuration;
@@ -19,6 +20,11 @@ namespace NPC.States
             EnteredState = base.EnterState();
             if (EnteredState)
             {
+                fovVisible.color = Color.white;
+                Debug.Log("now finding player");
+                Animator.SetBool("isRunning",false);
+                Animator.SetBool("isPunching",false);
+                Animator.SetBool("isDead",false);
                 Debug.Log("IdleState");
                 _totalDuration = 0f;
             }
@@ -35,7 +41,12 @@ namespace NPC.States
 
                 if (_totalDuration >= _idleDuration)
                 {
-                    _fsm.EnterState(FSMStateType.Patrol);
+                    Fsm.EnterState(FSMStateType.Patrol);
+                }
+
+                if (FOV.findPlayer)
+                {
+                    Fsm.EnterState(FSMStateType.Attack);
                 }
             }
             

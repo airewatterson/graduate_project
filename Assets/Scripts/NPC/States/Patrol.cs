@@ -1,6 +1,7 @@
 using System;
 using NPC.Waypoints;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 namespace NPC.States
@@ -8,9 +9,9 @@ namespace NPC.States
     [CreateAssetMenu(fileName = "PatrolState", menuName = "EnemyStates/Patrol", order = 2)]
     public class Patrol : AbstractState
     {
+        [SerializeField] private Material fovVisible;
         private ConnectedWaypoint[] _patrolPoints;
         private int _patrolPointIndex;
-
         public override void OnEnable()
         {
             base.OnEnable();
@@ -24,7 +25,7 @@ namespace NPC.States
             if (base.EnterState())
             {
                 //等待點抓取
-                _patrolPoints = _enemy.PatrolPoints;
+                _patrolPoints = Enemy.PatrolPoints;
 
                 if (_patrolPoints == null || _patrolPoints.Length == 0)
                 {
@@ -41,8 +42,14 @@ namespace NPC.States
                     {
                         _patrolPointIndex = (_patrolPointIndex + 1) % _patrolPoints.Length;
                     }
+                    //fov
+                    NavMeshAgent.speed = 2.25f;
+                    fovVisible.color = Color.white;
+                    Debug.Log("now finding player");
+                    
                     
                     SetDestination(_patrolPoints[_patrolPointIndex]);
+                    Animator.SetBool("isRunning",true);
                     EnteredState = true;
                 }
             }
@@ -54,9 +61,14 @@ namespace NPC.States
         {
             if (EnteredState)
             {
-                if (Vector3.Distance(_navMeshAgent.transform.position, _patrolPoints[_patrolPointIndex].transform.position) <= 1f)
+                if (Vector3.Distance(NavMeshAgent.transform.position, _patrolPoints[_patrolPointIndex].transform.position) <= 1f)
                 {
-                    _fsm.EnterState(FSMStateType.Idle);
+                    Animator.SetBool("isRunning",false);
+                    Fsm.EnterState(FSMStateType.Idle);
+                }
+                if (FOV.findPlayer)
+                {
+                    Fsm.EnterState(FSMStateType.Attack);
                 }
             }
         }
@@ -64,9 +76,9 @@ namespace NPC.States
         
         private void SetDestination(ConnectedWaypoint destination)
         {
-            if (_navMeshAgent != null && destination != null)
+            if (NavMeshAgent != null && destination != null)
             {
-                _navMeshAgent.SetDestination(destination.transform.position);
+                NavMeshAgent.SetDestination(destination.transform.position);
             }
         }
     }

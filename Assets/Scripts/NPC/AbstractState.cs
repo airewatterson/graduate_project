@@ -1,5 +1,6 @@
 //tutorial from:https://www.youtube.com/watch?v=21yDDUKCQOI
 
+using NPC.Sight.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,15 +18,18 @@ namespace NPC
     {
         Idle,
         Patrol,
+        Attack,
     }
     public abstract class AbstractState : ScriptableObject
     {
-        protected NavMeshAgent _navMeshAgent;
-        protected Enemy _enemy;
-        protected FiniteStateMachine _fsm;
+        protected NavMeshAgent NavMeshAgent;
+        protected Enemy Enemy;
+        protected FiniteStateMachine Fsm;
         public Execution Execution { get; protected set; }
         public bool EnteredState { get; protected set; }
         public FSMStateType StateType { get; protected set; }
+        protected FieldOfView FOV;
+        protected Animator Animator;
 
         public virtual void OnEnable()
         {
@@ -38,8 +42,8 @@ namespace NPC
             var successNPC = true;
             Execution = Execution.Active;
             //檢查NavMeshAgent是否存在
-            successNavMesh = _navMeshAgent != null;
-            successNPC = _enemy != null;
+            successNavMesh = NavMeshAgent != null;
+            successNPC = Enemy != null;
             
             return successNavMesh & successNPC;
         }
@@ -56,7 +60,7 @@ namespace NPC
         {
             if (navMeshAgent != null)
             {
-                _navMeshAgent = navMeshAgent;
+                NavMeshAgent = navMeshAgent;
             }
         }
 
@@ -64,7 +68,7 @@ namespace NPC
         {
             if (enemy != null)
             {
-                _enemy = enemy;
+                Enemy = enemy;
             }
         }
 
@@ -72,9 +76,24 @@ namespace NPC
         {
             if (fsm != null)
             {
-                 _fsm= fsm;
+                 Fsm= fsm;
             }
         }
         
+        public virtual void SetExecutingFOV(FieldOfView fov)
+        {
+            if (fov != null)
+            {
+                FOV= fov;
+            }
+        }
+        
+        public virtual void SetExecutingAnimator(Animator animator)
+        {
+            if (animator != null)
+            {
+                Animator= animator;
+            }
+        }
     }
 }

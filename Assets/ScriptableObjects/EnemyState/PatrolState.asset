@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5b3aaeebdc48a3829d0a6cde10e950, type: 3}
   m_Name: PatrolState
   m_EditorClassIdentifier: 
+  fovVisible: {fileID: 2100000, guid: 3fa20395eda209b439394f4a03cf1515, type: 2}

@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using NPC.Sight.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,12 +19,15 @@ namespace NPC
             _fsmStates = new Dictionary<FSMStateType, AbstractState>();
             Enemy enemy = GetComponent<Enemy>();
             NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
+            FieldOfView fov = GetComponent<FieldOfView>();
+            Animator animator = GetComponentInChildren<Animator>();
             foreach (var state in validStates)
             {
                 state.SetExecutingFiniteStateMachine(this);
                 state.SetExecutingEnemy(enemy);
                 state.SetNavMeshAgent(navMeshAgent);
-                
+                state.SetExecutingFOV(fov);
+                state.SetExecutingAnimator(animator);
                 _fsmStates.Add(state.StateType, state);
             }
         }

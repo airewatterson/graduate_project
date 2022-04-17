@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffe37006fe34d48a9c292fd6017cbe0, type: 3}
   m_Name: IdleState
   m_EditorClassIdentifier: 
+  fovVisible: {fileID: 2100000, guid: 3fa20395eda209b439394f4a03cf1515, type: 2}
   _idleDuration: 5
