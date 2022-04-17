@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994f90e293cbc284eabb13d59cfb28f6, type: 3}
   m_Name: MBS Config
   m_EditorClassIdentifier: 
-  pluginPath: 
-  pluginAssetsPath: 
-  pluginCorePath: 
-  pluginInternalPath: 
-  wallGizmoMesh: {fileID: 0}
-  gridMesh: {fileID: 0}
-  gridMaterial: {fileID: 0}
+  pluginPath: Assets/MBS
+  pluginAssetsPath: Assets/MBS/AssetPacks
+  pluginCorePath: Assets/MBS/Core
+  pluginInternalPath: Assets/MBS/InternalDataStore
+  wallGizmoMesh: {fileID: 8991186673545093645, guid: 26dfdf3bb8bc4d3489b10d04a4d261d2, type: 3}
+  gridMesh: {fileID: -7225009403177257938, guid: 15c8492479792ed4a9b2c0fc484c9bbb, type: 3}
+  gridMaterial: {fileID: 2100000, guid: 308a76f920f7baf4786415cb05349698, type: 2}
   pluginDisabled: 0
