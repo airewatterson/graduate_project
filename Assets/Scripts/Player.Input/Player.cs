@@ -70,10 +70,6 @@ namespace Player.Input
 
         private void Update()
         {
-            
-            
-            
-            
             if (_photonView.IsMine)
             {
                 
@@ -124,10 +120,20 @@ namespace Player.Input
                 Destroy(other.gameObject);
             }
 
-            if (!_photonView.IsMine && other.CompareTag("Bullet") || other.CompareTag("Weapon"))
+            if (other.CompareTag("Bullet") || other.CompareTag("Weapon"))
             {
                 playerHp--;
                 _animator.SetTrigger("isHurt");
+            }
+
+            switch (_photonView.IsMine)
+            {
+                case true when isAttacking && other.CompareTag("Player"):
+                    other.GetComponent<Player>().playerHp--;
+                    break;
+                case false when isAttacking && other.CompareTag("Player"):
+                    playerHp--;
+                    break;
             }
         }
         
