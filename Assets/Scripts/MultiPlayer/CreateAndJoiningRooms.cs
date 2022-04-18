@@ -21,7 +21,7 @@ namespace MultiPlayer
 
         public override void OnJoinedRoom()
         {
-            PhotonNetwork.LoadLevel("Connected");
+            PhotonNetwork.LoadLevel(2);
         }
     }
 }

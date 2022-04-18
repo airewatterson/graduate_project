@@ -14,14 +14,8 @@ namespace NPC.States
         
         public override void OnEnable()
         {
-            var i = FOV.visibleTargets.Count;
             base.OnEnable();
             StateType = FSMStateType.Attack;
-            
-            if (_target.childCount <= 0)
-            {
-                Debug.LogError("Not founded player yet.");
-            }
         }
 
         public override bool EnterState()   
@@ -30,10 +24,13 @@ namespace NPC.States
             if (EnteredState)
             {
                 
-                
                 if(FOV.findPlayer)
                 {
                     _target = FOV.visibleTargets[0].transform;
+                    if (_target.childCount <= 0)
+                    {
+                        Debug.LogError("Not founded player yet.");
+                    }
                     NavMeshAgent.speed = 0f;
                     Debug.Log("Attacking");
                     fovVisible.color = Color.red;
@@ -43,6 +40,7 @@ namespace NPC.States
                     Vector3 relativePos = _target.position - Enemy.transform.position;
                     Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
                     Enemy.transform.rotation = rotation;
+                    
                 }
             }
 

@@ -1,13 +1,22 @@
+using System;
 using Cinemachine;
+using DamageSys;
 using General;
 using Photon.Pun;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Player.Input
 {
-    public class Player : SingletonMonoBehavior<Player>
+    public class Player : SingletonMonoBehavior<Player>, IDamageable
     {
+        [Header("玩家資訊")] 
+        public int playerHp = 3;
+        
+        
+        
         private CharacterController _controller;
         private Vector3 _playerVelocity;
 
@@ -25,6 +34,15 @@ namespace Player.Input
         private PhotonView _photonView;
         [SerializeField] private CinemachineVirtualCamera cam1;
         [SerializeField] private CinemachineVirtualCamera cam2;
+        
+        
+        //keys
+        public bool isCollected;
+        private int _getKey;
+        [SerializeField] private TextMeshProUGUI keyUi;
+        
+        //if player is dead... then
+        [SerializeField] private GameObject dropKey;
 
         public override void Awake()
         {
@@ -34,6 +52,7 @@ namespace Player.Input
         private void OnEnable()
         {
             _playerInput.Enable();
+            
         }
 
         private void OnDisable()
@@ -51,8 +70,17 @@ namespace Player.Input
 
         private void Update()
         {
+            
+            
+            
+            
             if (_photonView.IsMine)
             {
+                
+                //collecting data
+                keyUi = GameObject.FindWithTag("KeyUi").GetComponent<TextMeshProUGUI>();
+                keyUi.text = _getKey.ToString();
+                isCollected = _getKey>=4;
                 //Movement
                 var movementInput = _playerInput.Player1.Movement.ReadValue<Vector2>();
                 var move = new Vector3(movementInput.x, 0f, movementInput.y);
@@ -84,25 +112,96 @@ namespace Player.Input
             }
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (_isDead)
+            {
+                return;
+            }
+            if (other.transform.CompareTag("Key"))
+            {
+                _getKey++;
+                Destroy(other.gameObject);
+            }
 
-
-       #region ControlSystems
+            if (!_photonView.IsMine && other.CompareTag("Bullet") || other.CompareTag("Weapon"))
+            {
+                playerHp--;
+                _animator.SetTrigger("isHurt");
+            }
+        }
         
-       /*  private bool AnimatorIsPlaying(string stateName){
-            return AnimatorIsPlaying() && _animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+
+        #region ANIMATIONS
+        
+
+        public void DisablePlayer()
+        {
+            gameObject.SetActive(false);
         }
 
-        public void AttackingRule()
+        private void EnablePlayer()
         {
+            gameObject.SetActive(true);
+        }
 
-            if (isAttacking && AnimatorIsPlaying())
-            {
-                _animator.SetBool("isPunching",true);
-            }
-        }*/
-
-       
-
+        private void Revive()
+        {
+            _isDead = false;
+            playerHp = 3;
+            gameObject.SetActive(true);
+        }
+        
+        
         #endregion
+
+        //死後掉落鑰匙
+
+
+
+        public void ReceiveDamage(Collider hit)
+        {
+            if (hit.transform.CompareTag("Enemy") || hit.transform.CompareTag("Bullet"))
+            {
+                playerHp--;
+                Debug.LogError("Get hit from enemy!");
+            }
+        }
+
+        private bool _isDead = false;
+        private int _lostKey;
+        public void PlayDamage()
+        {
+            if (_isDead)
+            {
+                return;
+            }
+            _animator.SetTrigger("isHurt");
+            if (playerHp <= 0)
+            {
+                
+                _isDead = true;
+                playerHp = 0;
+                _lostKey = _getKey;
+                _getKey = 0;
+                _animator.SetBool("isDead",true);
+                Invoke(nameof(DisablePlayer),3);
+                Invoke(nameof(DropKey),4);
+                Invoke(nameof(Revive),10);
+                Debug.LogError("Player is dead");
+            }
+        }
+
+        private void DropKey()
+        {
+            
+            Debug.LogError("Lost");
+            
+            for (int i = 0; i < _lostKey; i++)
+            {
+                Instantiate(dropKey, transform.position, quaternion.identity);
+                
+            }
+        }
     }
 }

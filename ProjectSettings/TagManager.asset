@@ -10,6 +10,11 @@ TagManager:
   - Room
   - WayPoints
   - UI
+  - Bullet
+  - Key
+  - Weapon
+  - End
+  - KeyUi
   layers:
   - Default
   - TransparentFX

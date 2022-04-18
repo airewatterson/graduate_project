@@ -15,7 +15,7 @@ namespace NPC.Sight.Scripts
 		public LayerMask obstacleMask;
 
 		//[HideInInspector]
-		public List<Transform> visibleTargets = new List<Transform>();
+		public List<Transform> visibleTargets = new();
 
 		public float meshResolution;
 		public int edgeResolveIterations;
@@ -33,8 +33,9 @@ namespace NPC.Sight.Scripts
 			_viewMesh = new Mesh ();
 			_viewMesh.name = "View Mesh";
 			viewMeshFilter.mesh = _viewMesh;
+			//
 
-			StartCoroutine ("FindTargetsWithDelay", .2f);
+			StartCoroutine ("FindTargetsWithDelay", .3f);
 		}
 
 
@@ -61,6 +62,16 @@ namespace NPC.Sight.Scripts
 					float dstToTarget = Vector3.Distance (transform.position, target.position);
 					if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
 					{
+						// 敵人攻擊玩家
+						if (target.gameObject.GetComponent<Player.Input.Player>())
+						{
+							enemy.muzzleFlashAnimator.SetTrigger("Shoot");
+							target.GetComponent<Player.Input.Player>().playerHp--;
+							target.GetComponent<Player.Input.Player>().PlayDamage();
+							Vector3 relativePos = target.position - enemy.transform.position;
+							Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
+							enemy.transform.rotation = rotation;
+						}
 						findPlayer = true;
 						visibleTargets.Add (target);
 						Debug.LogAssertion("Find Target");
@@ -187,36 +198,14 @@ namespace NPC.Sight.Scripts
 				pointB = _pointB;
 			}
 		}
-		
-		
+
+
 		private void Shooting()
 		{
-			//Enemy.muzzleFlashAnimator.SetTrigger("Shoot");
+			/*enemy.muzzleFlashAnimator.SetTrigger("Shoot");
+			Instantiate(enemy.bullet, enemy.gunPoint.transform.position, Quaternion.identity);
 
-			var hit = Physics2D.Raycast(
-				enemy.gunPoint.position,
-				enemy.transform.forward,
-				enemy.weaponRange
-			);
-
-			var trail = Instantiate(
-				enemy.bulletTrail,
-				enemy.gunPoint.position,
-				enemy.transform.rotation
-			);
-
-			var trailScript = trail.GetComponent<BulletTrail>();
-			if (hit.collider != null)
-			{
-				trailScript.SetTargetPosition(hit.point);
-				//var hittable = hit.collider.GetComponent<IDamageable>();
-				//hittable?.
-			}
-			else
-			{
-				var endPosition = -visibleTargets[0].position-(enemy.gunPoint.position + enemy.transform.forward * enemy.weaponRange);
-				trailScript.SetTargetPosition(endPosition);
-			}
+			Vector3 shootDir = visibleTargets[0].position - enemy.gunPoint.transform.position;*/
 		}
 
 	}

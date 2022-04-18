@@ -4,6 +4,6 @@ namespace DamageSys
 {
     public interface IDamageable
     {
-        public void ReceiveDamage(RaycastHit hit, Collider collider);
+        public void ReceiveDamage(Collider hit);
     }
 }   

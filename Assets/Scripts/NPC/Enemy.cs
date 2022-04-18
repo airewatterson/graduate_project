@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 namespace NPC
 {
     [RequireComponent(typeof(NavMeshAgent), typeof(FiniteStateMachine))]
-    public class Enemy : SingletonMonoBehavior<Enemy>, IDamageable
+    public class Enemy : MonoBehaviour, IDamageable
     {
         [FormerlySerializedAs("_patrolPoints")] [SerializeField] private ConnectedWaypoint[] patrolPoints;
         
@@ -21,12 +21,13 @@ namespace NPC
         //Attack參數
         public float speed;
         public Transform gunPoint; 
-        public GameObject bulletTrail; 
+        public GameObject bullet; 
         public float weaponRange = 10f; 
-        public Animator muzzleFlashAnimator;
+        public  Animator muzzleFlashAnimator;
+        private IDamageable _damageableImplementation;
 
 
-        public override void Awake()
+        public void Awake()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _finiteStateMachine = GetComponent<FiniteStateMachine>();
@@ -34,10 +35,20 @@ namespace NPC
         
         public ConnectedWaypoint[] PatrolPoints => patrolPoints;
 
+        
 
-        public void ReceiveDamage(RaycastHit hit, Collider collider)
+        public void ReceiveDamage(RaycastHit2D hit)
         {
+            //GetDamage(hit);
             
         }
+
+        public void ReceiveDamage(Collider hit)
+        {
+            Debug.LogError("Get Hit!");
+        }
+
+
+        
     }
 }

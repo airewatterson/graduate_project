@@ -1,34 +1,57 @@
+using System;
+using CodeMonkey.Utils;
+using DamageSys;
 using General;
+using NPC;
 using UnityEngine;
 
 namespace Weapons
 {
     public class BulletTrail : SingletonMonoBehavior<BulletTrail>
     {
-        private Vector3 _startPosition;
+        private Vector3 _shootDir;
 
-        private Vector3 _targetPosition;
+        public float speed = 100f;
 
-        private float _progress;
+        public Rigidbody rigidBody;
         
-        [SerializeField]private float speed;
-
-        // Start is called before the first frame update
+        
+        
         private void Start()
         {
-            _startPosition = transform.position.WithAxis(Axis.Z, 0);
+            rigidBody = GetComponent<Rigidbody>();
+            rigidBody.velocity += _shootDir * speed * Time.deltaTime;
         }
 
-        // Update is called once per frame
-        private void Update()
+        private void OnEnable()
         {
-            _progress += Time.deltaTime * speed;
-            transform.position = Vector3.Lerp(_startPosition, _targetPosition, _progress);
+            //Vector3 relativePos = _target.position - transform.position;
+            var shootDir = new Vector3();
+            _shootDir = shootDir; 
+            transform.eulerAngles = new Vector3(0, 0, UtilsClass.GetAngleFromVectorFloat(shootDir));
         }
 
-        public void SetTargetPosition(Vector3 targetPosition)
+        private void OnTriggerEnter(Collider other)
         {
-            _targetPosition = targetPosition.WithAxis(Axis.Z, 0);
+            var hittable = other.gameObject.GetComponent<IDamageable>();
+            
+            if (other.transform.CompareTag("Room"))
+            {
+                Destroy(gameObject);
+            }
+
+            if (other != null && !other.CompareTag("Bullet"))
+            {
+                hittable.ReceiveDamage(other);
+            }
         }
+
+       /* private void Update()
+        {
+            float moveSpeed = 100f;
+            transform.position += _shootDir * moveSpeed * Time.deltaTime;
+        }*/
+
+        
     }
 }
