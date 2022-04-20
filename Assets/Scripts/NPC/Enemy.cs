@@ -19,12 +19,15 @@ namespace NPC
         private FiniteStateMachine _finiteStateMachine;
         
         //Attack參數
-        public float speed;
         public Transform gunPoint; 
         public GameObject bullet; 
         public float weaponRange = 10f; 
         public  Animator muzzleFlashAnimator;
         private IDamageable _damageableImplementation;
+        
+        //Enemy生命參數
+        public int enemyHp = 1;
+        public Animator enemyAnimator;
 
 
         public void Awake()
@@ -35,12 +38,13 @@ namespace NPC
         
         public ConnectedWaypoint[] PatrolPoints => patrolPoints;
 
-        
 
-        public void ReceiveDamage(RaycastHit2D hit)
+        private void Update()
         {
-            //GetDamage(hit);
-            
+            if (enemyHp > 0) return;
+            enemyAnimator.SetBool("isDead",true);
+            Invoke(nameof(DisableEnemy),3);
+            Invoke(nameof(Revive),10);
         }
 
         public void ReceiveDamage(Collider hit)
@@ -48,7 +52,29 @@ namespace NPC
             Debug.LogError("Get Hit!");
         }
 
-
+        private void DisableEnemy()
+        {
+            gameObject.SetActive(false);
+        }
         
+        private void Revive()
+        {
+            enemyAnimator.SetBool("isDead",false);
+            enemyHp = 1;
+            gameObject.SetActive(true);
+        }
+        
+        public void TakeDamage(int damage)
+        {
+
+            enemyHp -= damage;
+            Debug.Log(enemyHp);
+            if(enemyHp <= 0)
+            {
+                enemyAnimator.SetBool("isDead",true);
+                Invoke(nameof(DisableEnemy), 3);
+                Invoke(nameof(Revive),10);
+            }
+        }
     }
 }

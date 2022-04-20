@@ -62,12 +62,17 @@ namespace NPC.Sight.Scripts
 					float dstToTarget = Vector3.Distance (transform.position, target.position);
 					if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
 					{
+						if (enemy.enemyHp<=0)
+						{
+							return;
+						}
 						// 敵人攻擊玩家
 						if (target.gameObject.GetComponent<Player.Input.Player>())
 						{
+							target.GetComponent<Player.Input.Player>().PlayDamage();
 							enemy.muzzleFlashAnimator.SetTrigger("Shoot");
 							target.GetComponent<Player.Input.Player>().playerHp--;
-							target.GetComponent<Player.Input.Player>().PlayDamage();
+							
 							Vector3 relativePos = target.position - enemy.transform.position;
 							Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
 							enemy.transform.rotation = rotation;

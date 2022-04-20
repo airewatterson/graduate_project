@@ -10,9 +10,9 @@ EditorBuildSettings:
     guid: 3943ec6369eea479483f4eb1f0cb36f4
   - enabled: 1
     path: Assets/Scenes/Mobile.unity
-    guid: ea6b3f78fe1a249759d95d6578bfc973
+    guid: 3fbbe0e4396c34d51a410ea901b36ac0
   - enabled: 1
     path: Assets/Scenes/Connect.unity
-    guid: 69dce96ace5074ec0ad8e72424c8beb9
+    guid: bf8631b7c56f84aef946f52063ef4f09
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ef4b3312b820841a0a63a4d6434fda70, type: 2}

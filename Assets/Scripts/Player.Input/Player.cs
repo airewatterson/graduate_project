@@ -2,11 +2,13 @@ using System;
 using Cinemachine;
 using DamageSys;
 using General;
+using NPC;
 using Photon.Pun;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Player.Input
 {
@@ -14,7 +16,14 @@ namespace Player.Input
     {
         [Header("玩家資訊")] 
         public int playerHp = 3;
+        public int playerMaxHp = 3;
+        public Image healthBar;
+        [SerializeField] private float attackTimer;
         
+        //attack
+        [SerializeField] private Transform attackPoint;
+        [SerializeField] private float attackRange;
+        public LayerMask enemyLayer;
         
         
         private CharacterController _controller;
@@ -62,6 +71,7 @@ namespace Player.Input
 
         private void Start()
         {
+            
             _controller = GetComponent<CharacterController>();
             _photonView = GetComponent<PhotonView>();
             cam1 = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
@@ -72,7 +82,9 @@ namespace Player.Input
         {
             if (_photonView.IsMine)
             {
-                
+                AttackTimer();
+                //HP
+                //healthBar.fillAmount = playerHp / playerMaxHp;
                 //collecting data
                 keyUi = GameObject.FindWithTag("KeyUi").GetComponent<TextMeshProUGUI>();
                 keyUi.text = _getKey.ToString();
@@ -92,19 +104,26 @@ namespace Player.Input
                 }
 
                 //Attacking the other player
-                if (_playerInput.Player1.Use.triggered && !isAttacking)
+                if (_playerInput.Player1.Use.triggered)
                 {
-                    isAttacking = true;
-                    _animator.SetBool("isPunching",true);
+                    isAttacking = _playerInput.Player1.Use.triggered;
+                    if (isAttacking)
+                    {
+                        PlayerAttack();
+                        _animator.SetBool("isPunching",_playerInput.Player1.Use.triggered);
+                    }
+                    
                 }
-                
-                
+
+
                 //CinemachineVirtualCamera Lookat
                 var o = gameObject;
                 cam1.LookAt = o.transform;
                 cam1.Follow = o.transform;
                 cam2.LookAt = o.transform;
                 cam2.Follow = o.transform;
+                
+                
             }
         }
 
@@ -120,13 +139,7 @@ namespace Player.Input
                 Destroy(other.gameObject);
             }
 
-            if (other.CompareTag("Bullet") || other.CompareTag("Weapon"))
-            {
-                playerHp--;
-                _animator.SetTrigger("isHurt");
-            }
-
-            switch (_photonView.IsMine)
+            /*switch (_photonView.IsMine)
             {
                 case true when isAttacking && other.CompareTag("Player"):
                     other.GetComponent<Player>().playerHp--;
@@ -135,13 +148,56 @@ namespace Player.Input
                     playerHp--;
                     break;
             }
+ 
+            if (other.transform.CompareTag("Enemy") )
+            {
+                other.GetComponent<Enemy>().enemyHp--;
+                Debug.LogError("Hit Enemy");
+            }*/
         }
+
+        #region Attack Section
+
+        private void PlayerAttack()
+        {
+            //_animator.SetBool("isPunching", true);
+            var hit = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         
+            foreach (var enemy in hit)
+            {
+                Debug.Log("hit" + enemy.name);
+                var police = enemy.GetComponent<Enemy>();
+                var player1 = enemy.gameObject.GetComponent<Player>();
+                if (police != null)
+                {
+                    Debug.LogError("Detect enemy");
+                    police.TakeDamage(1);
+                }
+                if (player1 != null)
+                {
+                    Debug.LogError("Detect player");
+                    player1.playerHp--;
+                }
+        
+            }
+        }
+        private void OnDrawGizmosSelected()// 確認範圍
+        {
+            if (attackPoint == null)
+            {
+                return;
+            }
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
+
+        #endregion
+        
+
 
         #region ANIMATIONS
         
 
-        public void DisablePlayer()
+        private void DisablePlayer()
         {
             gameObject.SetActive(false);
         }
@@ -178,11 +234,12 @@ namespace Player.Input
         private int _lostKey;
         public void PlayDamage()
         {
+            _animator.SetTrigger("isHurt");
             if (_isDead)
             {
                 return;
             }
-            _animator.SetTrigger("isHurt");
+            
             if (playerHp <= 0)
             {
                 
@@ -207,6 +264,14 @@ namespace Player.Input
             {
                 Instantiate(dropKey, transform.position, quaternion.identity);
                 
+            }
+        }
+
+        private void AttackTimer()
+        {
+            if (attackTimer <= 0)
+            {
+                attackTimer -= Time.deltaTime;
             }
         }
     }

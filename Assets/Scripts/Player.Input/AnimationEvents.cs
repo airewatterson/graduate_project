@@ -1,5 +1,6 @@
 using General;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player.Input
 {
@@ -59,6 +60,15 @@ namespace Player.Input
         public void ExitMultiPlayerPanel()
         {   
             startUI.SetBool("isMultiClicked",false);
+        }
+
+        #endregion
+
+        #region EndPanel
+
+        public void Restart()
+        {
+            SceneManager.LoadScene(0);
         }
 
         #endregion
