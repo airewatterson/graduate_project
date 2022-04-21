@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using DamageSys;
 using General;
@@ -15,8 +14,8 @@ namespace Player.Input
     public class Player : SingletonMonoBehavior<Player>, IDamageable
     {
         [Header("玩家資訊")] 
-        public int playerHp = 3;
-        public int playerMaxHp = 3;
+        public float playerHp = 3;
+        public float playerMaxHp = 3;
         public Image healthBar;
         [SerializeField] private float attackTimer;
         
@@ -71,7 +70,7 @@ namespace Player.Input
 
         private void Start()
         {
-            
+            playerHp = playerMaxHp;
             _controller = GetComponent<CharacterController>();
             _photonView = GetComponent<PhotonView>();
             cam1 = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
@@ -82,9 +81,11 @@ namespace Player.Input
         {
             if (_photonView.IsMine)
             {
+                
                 AttackTimer();
                 //HP
-                //healthBar.fillAmount = playerHp / playerMaxHp;
+                healthBar = GameObject.FindWithTag("HealthBar").GetComponent<Image>();
+                healthBar.fillAmount = playerHp / playerMaxHp;
                 //collecting data
                 keyUi = GameObject.FindWithTag("KeyUi").GetComponent<TextMeshProUGUI>();
                 keyUi.text = _getKey.ToString();
@@ -133,11 +134,17 @@ namespace Player.Input
             {
                 return;
             }
-            if (other.transform.CompareTag("Key"))
+            if (other.transform.CompareTag("Key") && _getKey < 4)
             {
                 _getKey++;
                 Destroy(other.gameObject);
             }
+            else if (other.transform.CompareTag("Key") && _getKey >= 4)
+            {
+                _getKey = 4;
+            }
+
+
 
             /*switch (_photonView.IsMine)
             {
@@ -235,6 +242,8 @@ namespace Player.Input
         public void PlayDamage()
         {
             _animator.SetTrigger("isHurt");
+            //CameraShake.Instance.ShakeCamera(5f,.1f);
+            
             if (_isDead)
             {
                 return;

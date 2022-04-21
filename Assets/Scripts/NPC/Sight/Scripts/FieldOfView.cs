@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
@@ -23,7 +24,7 @@ namespace NPC.Sight.Scripts
 
 		public MeshFilter viewMeshFilter;
 		private Mesh _viewMesh;
-		
+		public Material material;
 		
 		//for attacking player
 		public bool findPlayer;
@@ -34,8 +35,8 @@ namespace NPC.Sight.Scripts
 			_viewMesh.name = "View Mesh";
 			viewMeshFilter.mesh = _viewMesh;
 			//
-
-			StartCoroutine ("FindTargetsWithDelay", .3f);
+			enemy = GetComponent<Enemy>();
+			StartCoroutine ("FindTargetsWithDelay", 0.4f);
 		}
 
 
@@ -43,7 +44,17 @@ namespace NPC.Sight.Scripts
 			while (true) {
 				yield return new WaitForSeconds (delay);
 				FindVisibleTargets ();
+
+				if (findPlayer == false)
+				{
+					enemy.muzzleFlashAnimator.SetBool("Shoot",false);
+				}
 			}
+		}
+
+		private void Update()
+		{
+			
 		}
 
 		void LateUpdate() {
@@ -66,21 +77,28 @@ namespace NPC.Sight.Scripts
 						{
 							return;
 						}
+						
+						
 						// 敵人攻擊玩家
 						if (target.gameObject.GetComponent<Player.Input.Player>())
 						{
+							material.color = Color.red;
 							target.GetComponent<Player.Input.Player>().PlayDamage();
-							enemy.muzzleFlashAnimator.SetTrigger("Shoot");
+							enemy.muzzleFlashAnimator.SetBool("Shoot",true);
 							target.GetComponent<Player.Input.Player>().playerHp--;
 							
 							Vector3 relativePos = target.position - enemy.transform.position;
 							Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
 							enemy.transform.rotation = rotation;
 						}
+						
 						findPlayer = true;
 						visibleTargets.Add (target);
 						Debug.LogAssertion("Find Target");
-						Shooting();
+					}
+					else
+					{
+						material.color = Color.white;
 					}
 					
 				}
@@ -204,14 +222,7 @@ namespace NPC.Sight.Scripts
 			}
 		}
 
-
-		private void Shooting()
-		{
-			/*enemy.muzzleFlashAnimator.SetTrigger("Shoot");
-			Instantiate(enemy.bullet, enemy.gunPoint.transform.position, Quaternion.identity);
-
-			Vector3 shootDir = visibleTargets[0].position - enemy.gunPoint.transform.position;*/
-		}
+		
 
 	}
 }

@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using DamageSys;
 using General;
 using NPC.Waypoints;
+using Player.Input;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
@@ -42,9 +43,9 @@ namespace NPC
         private void Update()
         {
             if (enemyHp > 0) return;
+            //CameraShake.Instance.ShakeCamera(5f,.1f);
             enemyAnimator.SetBool("isDead",true);
             Invoke(nameof(DisableEnemy),3);
-            Invoke(nameof(Revive),10);
         }
 
         public void ReceiveDamage(Collider hit)
@@ -73,7 +74,6 @@ namespace NPC
             {
                 enemyAnimator.SetBool("isDead",true);
                 Invoke(nameof(DisableEnemy), 3);
-                Invoke(nameof(Revive),10);
             }
         }
     }

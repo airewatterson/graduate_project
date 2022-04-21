@@ -33,7 +33,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     private void Update()
     {
-        player1Hp = player1.playerHp;
+        player1Hp = (int)player1.playerHp;
         ExitRole();
 
         if (player1Hp<0)

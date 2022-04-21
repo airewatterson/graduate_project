@@ -17,6 +17,8 @@ TagManager:
   - KeyUi
   - EndUi
   - HealthBar
+  - cam1
+  - cam2
   layers:
   - Default
   - TransparentFX
