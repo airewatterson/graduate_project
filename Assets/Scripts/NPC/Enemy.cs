@@ -2,7 +2,9 @@ using System;
 using System.Runtime.CompilerServices;
 using DamageSys;
 using General;
+using NPC.Sight.Scripts;
 using NPC.Waypoints;
+using Photon.Pun;
 using Player.Input;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,15 +12,15 @@ using UnityEngine.Serialization;
 
 namespace NPC
 {
-    [RequireComponent(typeof(NavMeshAgent), typeof(FiniteStateMachine))]
+    [RequireComponent(typeof(NavMeshAgent),typeof(FieldOfView),typeof(MoveTrap))]
+    [RequireComponent(typeof(PhotonView),typeof(PhotonTransformView))]
     public class Enemy : MonoBehaviour, IDamageable
     {
-        [FormerlySerializedAs("_patrolPoints")] [SerializeField] private ConnectedWaypoint[] patrolPoints;
+
         
         
         private NavMeshAgent _navMeshAgent;
-        private FiniteStateMachine _finiteStateMachine;
-        
+
         //Attack參數
         public Transform gunPoint; 
         public GameObject bullet; 
@@ -34,10 +36,7 @@ namespace NPC
         public void Awake()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
-            _finiteStateMachine = GetComponent<FiniteStateMachine>();
         }
-        
-        public ConnectedWaypoint[] PatrolPoints => patrolPoints;
 
 
         private void Update()

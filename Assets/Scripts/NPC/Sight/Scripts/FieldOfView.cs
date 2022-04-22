@@ -83,13 +83,11 @@ namespace NPC.Sight.Scripts
 						if (target.gameObject.GetComponent<Player.Input.Player>())
 						{
 							material.color = Color.red;
-							target.GetComponent<Player.Input.Player>().PlayDamage();
 							enemy.muzzleFlashAnimator.SetBool("Shoot",true);
 							target.GetComponent<Player.Input.Player>().playerHp--;
 							
 							Vector3 relativePos = target.position - enemy.transform.position;
-							Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
-							enemy.transform.rotation = rotation;
+							transform.LookAt(relativePos);
 						}
 						
 						findPlayer = true;

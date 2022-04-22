@@ -11,7 +11,7 @@ PlayerSettings:
   defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
-  accelerometerFrequency: 30
+  accelerometerFrequency: 100
   companyName: OneNightStudio
   productName: TheDeepMaze
   defaultCursor: {fileID: 0}
@@ -154,7 +154,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.GraduateProject
+    Standalone: com.OneNightStudio.TheDeepMaze
     iPhone: com.OneNightStudio.TheDeepMaze
   buildNumber:
     Standalone: 0

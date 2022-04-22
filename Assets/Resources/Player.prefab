@@ -118,7 +118,7 @@ MonoBehaviour:
     m_Bits: 768
   playerSpeed: 3
   isAttacking: 0
-  _animator: {fileID: 8091618926965839233}
+  animator: {fileID: 0}
   cam1: {fileID: 0}
   cam2: {fileID: 0}
   isCollected: 0
@@ -1982,11 +1982,6 @@ Transform:
 --- !u!4 &7704127874581388445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 842672151035107899, guid: 5ee6c239719326242b4e5ea3bfba1267, type: 3}
-  m_PrefabInstance: {fileID: 7015282897830807206}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &8091618926965839233 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1229621419067069223, guid: 5ee6c239719326242b4e5ea3bfba1267, type: 3}
   m_PrefabInstance: {fileID: 7015282897830807206}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8338225093041246091 stripped

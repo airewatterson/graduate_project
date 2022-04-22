@@ -1,4 +1,5 @@
 using General;
+using NPC;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,10 +24,34 @@ namespace Player.Input
             player = GetComponentInParent<Player>();
         }
 
-        public void AnimationRevert()
+        #region Animation
+
+        
+
+        #endregion
+        public void PlayerAttack()
         {
+            var hit = Physics.OverlapSphere(player.attackPoint.position, player.attackRange, player.enemyLayer);
+        
+            foreach (var enemy in hit)
+            {
+                Debug.Log("hit" + enemy.name);
+                var police = enemy.GetComponent<Enemy>();
+                var player1 = enemy.gameObject.GetComponent<Player>();
+                if (police != null)
+                {
+                    Debug.LogError("Detect enemy");
+                    police.TakeDamage(1);
+                }
+                if (player1 != null)
+                {
+                    Debug.LogError("Detect player");
+                    player1.playerHp--;
+                }
+            }
+
             player.isAttacking = false;
-            _animator.SetBool("isPunching",false);
+            player.animator.SetBool("isPunching",false);
         }
 
         public void Damage(Collider other)

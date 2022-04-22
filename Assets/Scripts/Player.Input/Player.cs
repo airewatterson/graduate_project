@@ -20,8 +20,8 @@ namespace Player.Input
         [SerializeField] private float attackTimer;
         
         //attack
-        [SerializeField] private Transform attackPoint;
-        [SerializeField] private float attackRange;
+        [SerializeField] public Transform attackPoint;
+        [SerializeField] public float attackRange;
         public LayerMask enemyLayer;
         
         
@@ -35,13 +35,15 @@ namespace Player.Input
 
         private PlayerInputActions _playerInput;
 
-        [SerializeField] private Animator _animator;
+        public Animator animator;
 
         //for Photon
         [Header("Photon設定")]
         private PhotonView _photonView;
         [SerializeField] private CinemachineVirtualCamera cam1;
         [SerializeField] private CinemachineVirtualCamera cam2;
+        private CameraShake _camShake1;
+        private CameraShake _camShake2;
         
         
         //keys
@@ -75,6 +77,10 @@ namespace Player.Input
             _photonView = GetComponent<PhotonView>();
             cam1 = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
             cam2 = GameObject.Find("CM vcam2").GetComponent<CinemachineVirtualCamera>();
+            animator = GetComponentInChildren<Animator>();
+            
+            _camShake1 = GameObject.FindWithTag("cam1").GetComponent<CameraShake>();
+            _camShake2 = GameObject.FindWithTag("cam2").GetComponent<CameraShake>();
         }
 
         private void Update()
@@ -97,23 +103,19 @@ namespace Player.Input
                 if (move != Vector3.zero)
                 {
                     gameObject.transform.forward = move;
-                    _animator.SetBool("isRunning",true);
+                    animator.SetBool("isRunning",true);
                 }
                 else
                 {
-                    _animator.SetBool("isRunning",false);
+                    animator.SetBool("isRunning",false);
                 }
 
                 //Attacking the other player
-                if (_playerInput.Player1.Use.triggered)
+                if (_playerInput.Player1.Use.triggered && !isAttacking)
                 {
-                    isAttacking = _playerInput.Player1.Use.triggered;
-                    if (isAttacking)
-                    {
-                        PlayerAttack();
-                        _animator.SetBool("isPunching",_playerInput.Player1.Use.triggered);
-                    }
-                    
+                    Debug.LogError("attack");
+                    isAttacking = true;
+                    animator.SetBool("isPunching",true);
                 }
 
 
@@ -123,8 +125,10 @@ namespace Player.Input
                 cam1.Follow = o.transform;
                 cam2.LookAt = o.transform;
                 cam2.Follow = o.transform;
-                
-                
+
+
+
+                PlayDamage();
             }
         }
 
@@ -165,7 +169,7 @@ namespace Player.Input
 
         #region Attack Section
 
-        private void PlayerAttack()
+        public void PlayerAttack()
         {
             //_animator.SetBool("isPunching", true);
             var hit = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
@@ -177,11 +181,13 @@ namespace Player.Input
                 var player1 = enemy.gameObject.GetComponent<Player>();
                 if (police != null)
                 {
+                    //_camShake1.ShakeCamera(5, 0.1f);
                     Debug.LogError("Detect enemy");
                     police.TakeDamage(1);
                 }
                 if (player1 != null)
                 {
+                   //_camShake1.ShakeCamera(5, 0.1f);
                     Debug.LogError("Detect player");
                     player1.playerHp--;
                 }
@@ -217,10 +223,14 @@ namespace Player.Input
         private void Revive()
         {
             _isDead = false;
-            playerHp = 3;
+            playerHp = playerMaxHp;
             gameObject.SetActive(true);
         }
-        
+
+        public void ReverseHurt()
+        {
+            animator.SetBool("isHurt",false);
+        }
         
         #endregion
 
@@ -239,10 +249,10 @@ namespace Player.Input
 
         private bool _isDead = false;
         private int _lostKey;
-        public void PlayDamage()
+
+        private void PlayDamage()
         {
-            _animator.SetTrigger("isHurt");
-            //CameraShake.Instance.ShakeCamera(5f,.1f);
+            
             
             if (_isDead)
             {
@@ -251,12 +261,11 @@ namespace Player.Input
             
             if (playerHp <= 0)
             {
-                
                 _isDead = true;
                 playerHp = 0;
                 _lostKey = _getKey;
                 _getKey = 0;
-                _animator.SetBool("isDead",true);
+                animator.SetBool("isDead",true);
                 Invoke(nameof(DisablePlayer),3);
                 Invoke(nameof(DropKey),4);
                 Invoke(nameof(Revive),10);
