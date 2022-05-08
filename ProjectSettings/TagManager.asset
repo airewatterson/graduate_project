@@ -19,6 +19,8 @@ TagManager:
   - HealthBar
   - cam1
   - cam2
+  - Finish2
+  - Finish3
   layers:
   - Default
   - TransparentFX

@@ -48,7 +48,7 @@ namespace Player.Input
         
         //keys
         public bool isCollected;
-        private int _getKey;
+        [FormerlySerializedAs("_getKey")] [SerializeField]private int getKey;
         [SerializeField] private TextMeshProUGUI keyUi;
         
         //if player is dead... then
@@ -94,8 +94,8 @@ namespace Player.Input
                 healthBar.fillAmount = playerHp / playerMaxHp;
                 //collecting data
                 keyUi = GameObject.FindWithTag("KeyUi").GetComponent<TextMeshProUGUI>();
-                keyUi.text = _getKey.ToString();
-                isCollected = _getKey>=4;
+                keyUi.text = getKey.ToString();
+                isCollected = getKey>=4;
                 //Movement
                 var movementInput = _playerInput.Player1.Movement.ReadValue<Vector2>();
                 var move = new Vector3(movementInput.x, 0f, movementInput.y);
@@ -138,14 +138,14 @@ namespace Player.Input
             {
                 return;
             }
-            if (other.transform.CompareTag("Key") && _getKey < 4)
+            if (other.transform.CompareTag("Key") && getKey < 4)
             {
-                _getKey++;
+                getKey++;
                 Destroy(other.gameObject);
             }
-            else if (other.transform.CompareTag("Key") && _getKey >= 4)
+            else if (other.transform.CompareTag("Key") && getKey >= 4)
             {
-                _getKey = 4;
+                getKey = 4;
             }
 
 
@@ -263,8 +263,8 @@ namespace Player.Input
             {
                 _isDead = true;
                 playerHp = 0;
-                _lostKey = _getKey;
-                _getKey = 0;
+                _lostKey = getKey;
+                getKey = 0;
                 animator.SetBool("isDead",true);
                 Invoke(nameof(DisablePlayer),3);
                 Invoke(nameof(DropKey),4);
