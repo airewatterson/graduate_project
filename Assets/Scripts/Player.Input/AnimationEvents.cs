@@ -1,5 +1,6 @@
 using General;
 using NPC;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -93,7 +94,12 @@ namespace Player.Input
 
         public void Restart()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
+        }
+
+        public void RestartConnect()
+        {
+            SceneManager.LoadScene(2);
         }
 
         #endregion

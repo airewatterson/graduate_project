@@ -23,5 +23,11 @@ namespace MultiPlayer
         {
             PhotonNetwork.LoadLevel(2);
         }
+
+        public void ExitRoom()
+        {
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LoadLevel(1);
+        }
     }
 }
