@@ -19,4 +19,4 @@ MonoBehaviour:
   wallGizmoMesh: {fileID: 8991186673545093645, guid: 26dfdf3bb8bc4d3489b10d04a4d261d2, type: 3}
   gridMesh: {fileID: -7225009403177257938, guid: 15c8492479792ed4a9b2c0fc484c9bbb, type: 3}
   gridMaterial: {fileID: 2100000, guid: 308a76f920f7baf4786415cb05349698, type: 2}
-  pluginDisabled: 1
+  pluginDisabled: 0
